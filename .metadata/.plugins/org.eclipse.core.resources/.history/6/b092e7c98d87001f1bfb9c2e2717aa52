@@ -1,5 +1,0 @@
-package com.spring.recruit.dao.impl;
-
-public interface RecruitDao {
-
-}

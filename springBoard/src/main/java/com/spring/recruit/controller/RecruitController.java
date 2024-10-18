@@ -184,7 +184,7 @@ public class RecruitController {
 		} 
 			
 	    // 3. Career 정보 저장
-	    //
+	    
 	    //초기값 0 설정 다음 vo 값 존재할시에만 저장
 		int carrerCnt = recruitService.careerExistence(recruitVo.getSeq());
 	    int careerResultCnt = 0;
