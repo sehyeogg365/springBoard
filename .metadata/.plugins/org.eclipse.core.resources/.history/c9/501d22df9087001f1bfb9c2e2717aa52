@@ -1,0 +1,5 @@
+package com.spring.recruit.service;
+
+public interface recruitService {
+
+}

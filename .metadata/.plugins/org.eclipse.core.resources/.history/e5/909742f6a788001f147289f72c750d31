@@ -1,0 +1,17 @@
+package com.spring.recruit.dao;
+
+import com.spring.recruit.vo.EducationVo;
+import com.spring.recruit.vo.RecruitVo;
+
+public interface RecruitDao {
+	
+	//public RecruitVo selectUser(RecruitVo recruitvo) throws Exception;
+	
+	
+	public int educateInsert(EducationVo educationVo) throws Exception;
+	
+	public int educateDelete(EducationVo educationVo) throws Exception;
+		
+	
+	
+}

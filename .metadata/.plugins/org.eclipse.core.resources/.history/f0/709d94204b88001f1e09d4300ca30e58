@@ -1,0 +1,10 @@
+package com.spring.recruit.dao;
+
+public interface RecruitDao {
+
+	
+	
+	public RecruitVo selectUser(RecruitVo recruitvo) throws Exception;
+	
+	
+}

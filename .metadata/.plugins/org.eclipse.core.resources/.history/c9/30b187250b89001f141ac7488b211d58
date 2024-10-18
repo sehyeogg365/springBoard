@@ -1,0 +1,63 @@
+package com.spring.recruit.dao.impl;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.spring.recruit.dao.RecruitDao;
+import com.spring.recruit.vo.CareerVo;
+import com.spring.recruit.vo.CertificateVo;
+import com.spring.recruit.vo.EducationVo;
+import com.spring.recruit.vo.RecruitVo;
+
+@Repository
+public class RecruitDaoImpl implements RecruitDao{
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	//채용정보 조회
+	@Override
+	public RecruitVo selectRecruit(RecruitVo recruitvo) throws Exception{
+		
+		return sqlSession.selectOne("recruit.recruitSelect", recruitvo);
+	}
+	
+	//학력
+	@Override
+	public int educateInsert(EducationVo educationVo) throws Exception{
+		
+		return sqlSession.insert("recruit.educateInsert", educationVo);
+	}
+	
+	@Override
+	public int educateDelete(EducationVo educationVo) throws Exception{
+		
+		return sqlSession.delete("recruit.educateDelete", educationVo);
+	}
+	
+	@Override
+	public List<EducationVo> educateSelect(EducationVo educationVo) throws Exception{
+		
+		return sqlSession.selectList("recruit.educateSelect", educationVo);
+	}
+	
+	//경력
+	@Override
+	public List<CareerVo> careerSelect(CareerVo careerVo) throws Exception{
+		
+		return sqlSession.selectList("recruit.careerSelect", careerVo);
+	}
+	
+	
+	//자격증
+	@Override
+	public List<CertificateVo> certificateSelect(CertificateVo certificateVo) throws Exception{
+		
+		return sqlSession.selectList("recruit.certificateSelect", certificateVo);
+	}
+	
+	
+}

@@ -1,0 +1,38 @@
+package com.spring.recruit.service;
+
+import java.util.List;
+
+import com.spring.recruit.vo.CareerVo;
+import com.spring.recruit.vo.CertificateVo;
+import com.spring.recruit.vo.EducationVo;
+import com.spring.recruit.vo.RecruitVo;
+
+public interface RecruitService {
+	
+	//채용정보
+	public int recruitInsert(RecruitVo recruitVo) throws Exception;
+	
+	public RecruitVo recruitSelect(String name, String phone) throws Exception;
+
+	//학력
+	public int educateInsert(EducationVo educationVo) throws Exception;
+
+	public int educateDelete(EducationVo educationVo) throws Exception;
+
+	public EducationVo educateSelect(String seq) throws Exception;
+
+	
+	//경력
+	public int careerInsert(CareerVo careerVo) throws Exception;
+	
+	public int careerDelete(CareerVo careerVo) throws Exception;
+	
+	public CareerVo careerSelect(String seq) throws Exception;
+	
+	//자격증
+	public int certificateInsert(CareerVo careerVo) throws Exception;
+	
+	public int certificateDelete(CertificateVo certificateVo) throws Exception;
+	
+	public CertificateVo certificateSelect(CertificateVo certificateVo) throws Exception;
+}

@@ -1,0 +1,333 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/views/common/common.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>list</title>
+</head>
+<script type="text/javascript">
+
+	$j(document).ready(function(){
+        
+		$j("#allCheck").on("click", function(){
+			
+			//체크여부 확인
+		     if ($j(this).is(":checked")) {
+	        // 체크된 경우: name="boardTypeList"인 체크박스들의 id 값을 selectedValues 배열에 추가
+	        $j("input[name='boardTypeList']").each(function() {
+	            let id = $j(this).attr('id');
+	            // 중복 체크: 이미 배열에 없는 경우만 추가
+	            if (!selectedValues.includes(id) && id !== "allCheck") {
+	                selectedValues.push(id);
+	            }
+	        });
+		    } else {
+		        // 전체선택 체크박스가 해제된 경우: 배열에서 모든 id 값 제거
+		        $j("input[name='boardTypeList']").each(function() {
+		            const id = $j(this).attr('id');
+		            const index = selectedValues.indexOf(id);
+		            if (index > -1) {
+		                selectedValues.splice(index, 1);  // 배열에서 해당 id 제거
+		            }
+		        });
+		    }
+            
+            
+			$j("input[name='boardTypeList']").prop("checked", $j(this).is(":checked"));	
+            //alert("id: " + $j(this).attr('id'));
+            selectedValues.push($j(this).attr('id'));
+            //alert("selectedValues: " +  selectedValues);
+		});
+		
+		//체크된 갯수가 selectedValues.length 보다 작을시 전체 선택 표시 없애기  
+		const ckAll = document.querySelector(".ck-all");
+		const ckArr = document.querySelectorAll(".ck"); 
+		//$('input:checkbox[name="boardTypeList"]').length//체크박스 전체 갯수 
+
+	
+		ckAll.addEventListener("click", () =>{
+			
+			ckArr.forEach(ck => {
+				ck.checked = ckAll.checked;
+			})
+			
+		})
+		
+		ckArr.forEach(ck =>{
+			ck.addEventListener("click",() =>{
+				
+				let cnt = 0;
+				
+				ckArr.forEach(ck =>{
+					if(ck.checked == true){
+						
+						cnt++;
+					}
+				})
+				
+				if(cnt == ckArr.length){
+					//ckArr.length // ('input:checkbox[name="boardTypeList"]')
+					ckAll.checked = true;
+				} else {
+					ckAll.checked = false;
+				}
+				
+			})
+		})
+
+		
+		var selectedValues = [];//선택된 체크박스 id값을 넣은 배열
+		
+		$j("input[name='boardTypeList']:checked").each(function() {
+			//selectedValues = [];
+			
+	        selectedValues.push($j(this).attr('id'));  // (체크된) 체크박스의 id 값 가져오기 (codeName)
+	        
+	    });
+		
+		$j("input[name='boardTypeList']").on("click", function(){//각 체크박스 선택했을시 id값
+			let value = $j(this).val();
+			//alert("value값은: " + value); 
+			
+			let id = $j(this).attr('id');
+		    //alert("id 값은: " + id);
+		    
+		    //체크여부 확인
+		    if($j(this).is(":checked")){
+		    	selectedValues.push($j(this).attr('id'));//체크시 추가 아닐시 배열에서 뺌 
+		    } else {
+		    	const index = selectedValues.indexOf(id);
+		    	
+		    	if (index > -1) {
+		            selectedValues.splice(index, 1);  // 배열에서 해당 id 제거
+		        }
+		    }
+
+	        //alert("selectedValues: " +  selectedValues);
+			
+		});
+	
+		//폼메서드 없이 아작스로 바꾼다면? 
+		$j("#searchBtn").on("click", function(){
+			
+			
+			 // 선택된 체크박스의 값
+			 let selectedBoardTypes = [];
+
+			 $j("input[name='boardTypeList']:checked").each(function() {
+					//selectedValues = [];
+					
+			      selectedBoardTypes.push($j(this).val());  // (체크된) 체크박스의 id 값 가져오기 (codeName)
+			        
+			 });
+			 alert("selectedBoardTypes" + selectedBoardTypes);
+			 //아작스 요청 
+			 $j.ajax({
+				 url: "/board/boardList.do",
+				 type: "GET",//// 체크박스의 선택된 값들
+				 dataType: "json",
+				 data : {boardTypeList : selectedBoardTypes},
+				 success: function(data, textStatus, jqxHR)
+				 {//성공시 뭘불러올지? 
+					let html = '';
+				 	let html2 = '';
+	 	
+				 	//토탈카운트
+				 	if(data.totalCnt){
+				 		
+				 		$j("#totalCount").text('total : ' + data.totalCnt);
+				 	}
+				 	
+				 	//보드리스트
+					if(data.boardList){
+						
+						//var new_url ="/board/boardlist.do/?boardType="+ selectedBoardTypes.join(",");
+                        //window.location.href = new_url;
+
+						data.boardList.forEach(function(item) {
+							html += `<tr>
+										<td align="center">
+											${item.codeName}
+										</td>
+										<td>
+											${item.boardNum}
+										</td>
+										<td>
+											<a href = "/board/${item.boardType}/${item.boardNum}/boardView.do?pageNo=${pageNo}">${item.boardTitle}</a>
+										</td>
+										<td>
+											<button class="deleteBtn" data-board-num="${item.boardNum }">삭제 버튼</button>
+										</td>
+									</tr>`;
+						});
+							
+						//html 변수를 삽입할 곳 
+						$("#boardTableTr").html(html);	
+					} else {
+						$("#boardTableTr").html('<tr><td colspan="4" align="center">조회 결과가 없습니다.</td></tr>');
+						
+					}
+					//코드네임 리스트
+					if(codeNameList){
+						data.codeList.forEach(function(item){
+							
+							html2+= `    
+		                             <label><input type="checkbox" id="${item.codeName}" class="ck" name="boardTypeList" value="${item.codeId}"/>
+		                                 ${item.codeName}
+		                             </label>  
+			                      	`
+						});		
+						$("#checkboxlist").html(html2);
+					} else {
+						$("#checkboxlist").html('');
+						
+					}
+					 alert("조회성공");
+					 alert("메세지:"+data.success);
+				 },
+				 error: function(jqxHR, textStatus, error)
+				{
+					 alert("실패");				 
+				}
+				 
+				 
+			 });
+			 
+		});
+		
+		$j(".deleteBtn").on("click",function(){
+			
+			let boardNum = $j(this).data("board-num");
+			let boardType = $j(this).data("board-type");
+			//alert("boardNum :" + boardNum);
+			
+			var result = confirm("삭제 하시겠습니까?");
+	
+			if(result){
+				
+			} else {
+				return ;
+			}
+			
+			//alert("boardNum :" + boardNum);
+			
+			$j.ajax({
+				url : "/board/boardDeleteAction.do",
+				type:"GET",
+				data : {boardNum: boardNum,boardType: boardType },
+				success:function(data){
+					
+					alert("삭제완료");
+					
+					alert("메세지:"+data.success);
+					
+					location.reload();
+					
+				}
+				, error: function(){
+					alert("삭제 실패");
+				}
+		
+			});
+			
+		});
+	
+	});
+
+</script>
+<body>
+
+<table align="center">
+	<tr bgcolor="">
+		 
+		<td width="" style="text-align: left;">
+		<c:choose>
+			<c:when test="${not empty userId }">
+				${userName}님
+			</c:when>
+			<c:otherwise>
+				<a href="/board/loginPage.do">login</a>
+				<a href="/board/joinPage.do">join</a>
+			</c:otherwise>
+		</c:choose>	
+			<span id="totalCnt" style="float: right;">
+			total : ${totalCnt}
+			</span>
+		</td>
+	
+	</tr>
+	<tr bgcolor="">
+		<td>
+			<table id="boardTable" style="width: 100%;" border = "1">
+				<tr>
+					<td width="80" align="center">
+						Type
+					</td>
+					<td width="40" align="center">
+						No
+					</td>
+					<td width="300" align="center">
+						Title
+					</td>
+					<td width="75" align="center">
+						
+					</td>
+				</tr>
+				<c:forEach items="${boardList}" var="list">
+					<tr id="boardTableTr">
+						<td align="center">
+							${list.codeName}
+						</td>
+						<td>
+							${list.boardNum}
+						</td>
+						<td>
+							<a href = "/board/${list.boardType}/${list.boardNum}/boardView.do?pageNo=${pageNo}">${list.boardTitle}</a>
+						</td>
+						<td>
+							<button class="deleteBtn" data-board-num="${list.boardNum }" data-board-type="${list.boardType}">삭제 버튼</button>
+						</td>
+					</tr>	
+				</c:forEach>
+			</table>
+		</td>
+	</tr>
+	
+	<tr>
+		<td style="text-align: right;">
+
+			<a href ="/board/boardWrite.do">글쓰기</a>
+			
+			<c:choose>
+				<c:when test="${not empty userId }">
+					<a href="/board/logoutAction.do">로그아웃</a>
+				</c:when>
+				<c:otherwise>
+					
+				</c:otherwise>
+			</c:choose>
+		</td>
+	</tr>
+	
+	<tr id="codeNameList"bgcolor="">
+		 
+		<td style="text-align: left;">
+			<!--  <form action = "/board/boardList.do" method="get">-->
+				<label><input type="checkbox" id="allCheck" class="ck-all"/>전체</label>
+				<c:forEach items="${codeNameList}" var="list">
+				
+					<label id="checkboxlist" class="bg-grey"><input type="checkbox" id="${list.codeName}" class="ck" name="boardTypeList" value="${list.codeId}"/>
+							${list.codeName } 
+					</label>	
+					
+				</c:forEach>
+				<button type="submit" id="searchBtn">조회</button>
+			<!--  </form>	-->		
+		</td>
+		
+	</tr>
+</table>	
+</body>
+</html>

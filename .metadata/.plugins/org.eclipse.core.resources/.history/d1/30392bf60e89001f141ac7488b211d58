@@ -1,0 +1,43 @@
+package com.spring.recruit.vo;
+
+public class CertificateVo {
+
+	private String certificate_seq_sequence;   // EDU_SEQ 필드
+    private String seq_sequence;
+	private String qualifiName;
+	private String acquDate;
+	private String organizeName;
+	
+	public String getCertificate_seq_sequence() {
+		return certificate_seq_sequence;
+	}
+	public void setCertificate_seq_sequence(String certificate_seq_sequence) {
+		this.certificate_seq_sequence = certificate_seq_sequence;
+	}
+	public String getSeq_sequence() {
+		return seq_sequence;
+	}
+	public void setSeq_sequence(String seq_sequence) {
+		this.seq_sequence = seq_sequence;
+	}
+	public String getQualifiName() {
+		return qualifiName;
+	}
+	public void setQualifiName(String qualifiName) {
+		this.qualifiName = qualifiName;
+	}
+	public String getAcquDate() {
+		return acquDate;
+	}
+	public void setAcquDate(String acquDate) {
+		this.acquDate = acquDate;
+	}
+	public String getOrganizeName() {
+		return organizeName;
+	}
+	public void setOrganizeName(String organizeName) {
+		this.organizeName = organizeName;
+	}
+	
+	
+}

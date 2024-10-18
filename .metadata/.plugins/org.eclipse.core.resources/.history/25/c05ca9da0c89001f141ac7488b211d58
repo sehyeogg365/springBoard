@@ -1,0 +1,73 @@
+package com.spring.recruit.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.spring.recruit.dao.RecruitDao;
+import com.spring.recruit.service.RecruitService;
+import com.spring.recruit.vo.CareerVo;
+import com.spring.recruit.vo.CertificateVo;
+import com.spring.recruit.vo.EducationVo;
+import com.spring.recruit.vo.RecruitVo;
+
+
+@Service
+public class RecruitServiceImpl implements RecruitService {
+
+	@Autowired
+	RecruitDao recruitDao;
+	
+
+	//채용정보 조회
+	@Override
+	public RecruitVo recruitSelect(RecruitVo recruitVo) throws Exception{
+		
+		return recruitDao.recruitSelect(recruitVo);
+	}
+	
+	//저장
+	
+	//제출
+	
+	//학력 추가
+	@Override
+	public int educateInsert(EducationVo educationVo) throws Exception{
+		
+		return recruitDao.educateInsert(educationVo);
+	}
+
+	//학력 삭제
+	@Override
+	public int educateDelete(EducationVo educationVo) throws Exception{
+		
+		return recruitDao.educateDelete(educationVo);
+	}
+	
+	//학력 조회 
+	@Override 
+	public EducationVo educateSelect(EducationVo educationVo) throws Exception{
+		
+		return recruitDao.educateSelect(educationVo);
+	}
+	
+	
+	//경력 추가
+	//경력 삭제
+	//경력 조회
+	public CareerVo careerSelect(CareerVo careerVo) throws Exception{
+		
+		return recruitDao.careerSelect(careerVo);
+	}
+	
+	//자격증 추가
+	//자격증 삭제
+	//자격증 조회
+	public CertificateVo certificateSelect(CertificateVo certificateVo) throws Exception{
+		
+		return recruitDao.certificateSelect(certificateVo);
+	}
+	
+	
+}

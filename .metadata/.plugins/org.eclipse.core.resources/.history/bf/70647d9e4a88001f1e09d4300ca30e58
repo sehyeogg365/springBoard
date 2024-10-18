@@ -1,0 +1,9 @@
+package com.spring.recruit.service;
+
+import com.spring.recruit.vo.RecruitVo;
+
+public interface RecruitService {
+	
+	public RecruitVo selectUser (RecruitVo recruitVo) throws Exception ;
+
+}

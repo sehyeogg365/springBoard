@@ -1,0 +1,23 @@
+package com.spring.recruit.service;
+
+import java.util.List;
+
+import com.spring.recruit.vo.CareerVo;
+import com.spring.recruit.vo.EducationVo;
+import com.spring.recruit.vo.RecruitVo;
+
+public interface RecruitService {
+	//학력
+	public int educateInsert(EducationVo educationVo) throws Exception;
+
+	public int educateDelete(EducationVo educationVo) throws Exception;
+
+	public List<EducationVo> educateSelect(EducationVo educationVo) throws Exception;
+
+	
+	//경력
+	
+	public List<CareerVo> careerSelect(CareerVo careerVo) throws Exception;
+	
+	//자격증
+}
