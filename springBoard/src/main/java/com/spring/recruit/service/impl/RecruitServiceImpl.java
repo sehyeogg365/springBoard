@@ -59,13 +59,6 @@ public class RecruitServiceImpl implements RecruitService {
 		
 		return recruitDao.educateInsert(educationVo);
 	}
-
-	//학력 삭제
-	@Override
-	public int educateDelete(EducationVo educationVo) throws Exception{
-		
-		return recruitDao.educateDelete(educationVo);
-	}
 	
 	//학력 조회 
 	@Override 
@@ -95,14 +88,20 @@ public class RecruitServiceImpl implements RecruitService {
 	@Override
 	public int careerInsert(CareerVo careerVo) throws Exception{
 		
-		return recruitDao.careerInsert(careerVo);
-	}
-	
-	//경력 삭제
-	@Override
-	public int careerDelete(CareerVo careerVo) throws Exception{
+		String[] splitValues = careerVo.getTask().split("/");
 		
-		return recruitDao.careerDelete(careerVo);
+		// 부서와 직급은 task에 저장
+	    if (splitValues.length > 1) {
+	        careerVo.setTask(splitValues[0] + "/" + splitValues[1]);
+	    }
+
+	    // 직책은 salary에 저장
+	    if (splitValues.length > 2) {
+	        careerVo.setSalary(splitValues[2]);  // salary는 String으로 설정했다고 가정
+	    }
+	    
+		
+		return recruitDao.careerInsert(careerVo);
 	}
 	
 	//경력 조회
@@ -126,7 +125,19 @@ public class RecruitServiceImpl implements RecruitService {
 	
 	public int careerUpdate(CareerVo careerVo) throws Exception{
 		
-		return recruitDao.careerExistence(careerVo);
+		String[] splitValues = careerVo.getTask().split("/");
+		
+		// 부서와 직급은 task에 update
+	    if (splitValues.length > 1) {
+	        careerVo.setTask(splitValues[0] + "/" + splitValues[1]);
+	    }
+
+	    // 직책은 salary에 update
+	    if (splitValues.length > 2) {
+	        careerVo.setSalary(splitValues[2]);  // salary는 String으로 설정했다고 가정
+	    }
+	    
+		return recruitDao.careerUpdate(careerVo);
 	}
 	
 	//자격증 추가
@@ -134,13 +145,6 @@ public class RecruitServiceImpl implements RecruitService {
 	public int certificateInsert(CertificateVo certificateVo) throws Exception{
 		
 		return recruitDao.certificateInsert(certificateVo);
-	}
-	
-	//자격증 삭제
-	@Override
-	public int certificateDelete(CertificateVo certificateVo) throws Exception{
-		
-		return recruitDao.certificateDelete(certificateVo);
 	}
 	
 	//자격증 조회

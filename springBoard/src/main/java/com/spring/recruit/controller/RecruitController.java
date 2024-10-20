@@ -89,8 +89,8 @@ public class RecruitController {
              educationVo = recruitService.educateSelect(recruitVo.getSeq());
              System.out.println("educationVo: " + educationVo);
              
-//             careerVo = recruitService.careerSelect(recruitVo.getSeq());
-//             System.out.println("careerVo: " + careerVo);
+             careerVo = recruitService.careerSelect(recruitVo.getSeq());
+             System.out.println("careerVo: " + careerVo);
              certificateVo = recruitService.certificateSelect(recruitVo.getSeq());
              System.out.println("certificateVo" + certificateVo);
              }
@@ -154,7 +154,11 @@ public class RecruitController {
 //		
 		
 		//채용정보 존재 확인
-		
+		if(recruitVo.getSeq() != null) {
+			educationVo.setSeq(recruitVo.getSeq());
+			careerVo.setSeq(recruitVo.getSeq());
+			certificateVo.setSeq(recruitVo.getSeq());
+		}
 		int recruitCnt = recruitService.recruitExistence(recruitVo);
 		
 		int resultCnt = 0;
@@ -166,11 +170,7 @@ public class RecruitController {
 		System.out.println("시퀀스값: " + recruitVo.getSeq());
 		System.out.println("로케이션: " + recruitVo.getHopeLocation());
 		//일단 각 seq값을 셋팅해줘야 할것. 
-		if(recruitVo.getSeq() != null) {
-			educationVo.setSeq(recruitVo.getSeq());
-			careerVo.setSeq(recruitVo.getSeq());
-			certificateVo.setSeq(recruitVo.getSeq());
-		}
+		
 		
 				
 		// 2. Education 정보 저장
@@ -188,11 +188,12 @@ public class RecruitController {
 	    //초기값 0 설정 다음 vo 값 존재할시에만 저장
 		int carrerCnt = recruitService.careerExistence(recruitVo.getSeq());
 	    int careerResultCnt = 0;
-	    if(careerVo != null && carrerCnt == 0 ) {
+	    if(carrerCnt == 0 ) {
 	    	careerResultCnt = recruitService.careerInsert(careerVo);//정보 저장
 	    } else {
 	    	careerResultCnt = recruitService.careerUpdate(careerVo);//정보 업데이트
 	    }
+	    System.out.println("Career Existence Count: " + carrerCnt);
 	    System.out.println(careerVo.getCompName());
 	    System.out.println(careerVo.getStartPeriod());
 	    System.out.println(careerVo.getEndPeriod());
@@ -204,7 +205,7 @@ public class RecruitController {
 	    int certificateCnt = recruitService.certificateExistence(recruitVo.getSeq());
 	    int certificateResultCnt = 0;
 	    
-	    if(certificateVo != null && certificateCnt == 0) {
+	    if(certificateCnt == 0) {
 	    	certificateResultCnt = recruitService.certificateInsert(certificateVo);//정보 저장
 	    } else {
 	    	certificateResultCnt = recruitService.certificateUpdate(certificateVo);//정보 업데이트
@@ -221,149 +222,7 @@ public class RecruitController {
 		return callbackMsg;
 
 	}
-	
-	//제출
-
-	//학력 추가
-	/*
-	@RequestMapping(value = "/recruit/educateInsertAction.do", method = RequestMethod.POST)
-	@ResponseBody
-	public String educateInsertAction(Locale locale, EducationVo educateVo) throws Exception{
-		
-		HashMap<String, String> result = new HashMap<String, String>();
-		CommonUtil commonUtil = new CommonUtil();
-		
-		
-		int resultCnt = recruitService.educateInsert(educateVo);
-		
-//		System.out.println("시작일자" + educateVo.getStartPeriod());
-//		System.out.println("끝일자" + educateVo.getEndPeriod());
-//		System.out.println("구분" + educateVo.getDivision());
-//		System.out.println("학교" + educateVo.getSchoolName());
-//		System.out.println("전공" + educateVo.getMajor());
-//		System.out.println("학점" + educateVo.getGrade());
-//		System.out.println("시퀀스" + educateVo.getSeq());
-		
-		
-		result.put("success", (resultCnt > 0)?"Y":"N");
-		
-		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
-		
-		System.out.println("callbackMsg::"+callbackMsg);
-	
-		return callbackMsg;		
-	}*/
-	//학력 삭제
-	@RequestMapping(value = "/recruit/educateDeleteAction.do", method = RequestMethod.GET)
-	@ResponseBody
-	public String educateDeleteAction(Locale locale, EducationVo educateVo) throws Exception{
-			
-		HashMap<String, String> result = new HashMap<String, String>();
-		CommonUtil commonUtil = new CommonUtil();
-		
-		int resultCnt = recruitService.educateDelete(educateVo);
-		
-		result.put("success", (resultCnt > 0)?"Y":"N");
-		
-		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
-		
-		System.out.println("callbackMsg::"+callbackMsg);
-		
-		return callbackMsg;		
-	}
-	
-	
-	//경력 추가
-	/*
-	@RequestMapping(value = "/recruit/careerInsertAction.do", method = RequestMethod.POST , produces="application/text;charset=utf-8")
-	@ResponseBody
-	public String careerInsertAction(Locale locale, CareerVo careerVo) throws Exception{
-		
-		HashMap<String, String> result = new HashMap<String, String>();
-		CommonUtil commonUtil = new CommonUtil();
-
-		int resultCnt = recruitService.careerInsert(careerVo);
-		
-		System.out.println("careerVo"+careerVo);
-		System.out.println("고용일자" + careerVo.getStartPeriod());
-		System.out.println("퇴사일자" + careerVo.getEndPeriod());
-		System.out.println("회사" + careerVo.getCompName());
-		System.out.println("부서/직급/직책" + careerVo.getTask());
-		System.out.println("부서/직급/직책" + careerVo.getSalary());
-		System.out.println("지역" + careerVo.getLocation());
-		
-		result.put("success", (resultCnt > 0)?"Y":"N");
-		
-		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
-		
-		System.out.println("callbackMsg::"+callbackMsg);
-	
-		return callbackMsg;		
-	}*/
-	
-	
-	//경력 삭제
-	@RequestMapping(value = "/recruit/careerDeleteAction.do", method = RequestMethod.GET)
-	@ResponseBody
-	public String careerDeleteAction(Locale locale, CareerVo careerVo) throws Exception{
-			
-		HashMap<String, String> result = new HashMap<String, String>();
-		CommonUtil commonUtil = new CommonUtil();
-		
-		int resultCnt = recruitService.careerDelete(careerVo);
-		
-		result.put("success", (resultCnt > 0)?"Y":"N");
-		
-		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
-		
-		System.out.println("callbackMsg::"+callbackMsg);
-		
-		return callbackMsg;		
-	}
-	
-	//자격증 추가
-	/*
-	@RequestMapping(value = "/recruit/certificateInsertAction.do", method = RequestMethod.POST)
-	@ResponseBody
-	public String certificateInsertAction(Locale locale, CertificateVo certificateVo) throws Exception{
-		
-		HashMap<String, String> result = new HashMap<String, String>();
-		CommonUtil commonUtil = new CommonUtil();
-
-		int resultCnt = recruitService.certificateInsert(certificateVo);
-		
-			System.out.println("자격증" + certificateVo.getQualifiName());
-			System.out.println("취득일" + certificateVo.getAcquDate());
-			System.out.println("발해청" + certificateVo.getOrganizeName());
-			System.out.println("seq" + certificateVo.getSeq());
 
 
-		result.put("success", (resultCnt > 0)?"Y":"N");
-		
-		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
-		
-		System.out.println("callbackMsg::"+callbackMsg);
-	
-		return callbackMsg;		
-	}*/
-	
-	//자격증 삭제
-	@RequestMapping(value = "/recruit/certificateDeleteAction.do", method = RequestMethod.GET)
-	@ResponseBody
-	public String certificateDeleteAction(Locale locale, CertificateVo certificateVo) throws Exception{
-			
-		HashMap<String, String> result = new HashMap<String, String>();
-		CommonUtil commonUtil = new CommonUtil();
-		
-		int resultCnt = recruitService.certificateDelete(certificateVo);
-		
-		result.put("success", (resultCnt > 0)?"Y":"N");
-		
-		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
-		
-		System.out.println("callbackMsg::"+callbackMsg);
-		
-		return callbackMsg;		
-	}
 
 }

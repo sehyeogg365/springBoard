@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="param2"/>
+		<item key="selection" value="saveBtn"/>
 		<list key="findhistory">
+			<item value="saveBtn"/>
+			<item value="submitBtn"/>
+			<item value="Career Existence Count:"/>
+			<item value="educateCnt"/>
+			<item value="careerCnt"/>
+			<item value="careerExistence"/>
+			<item value="carrerCnt"/>
+			<item value="careerVo:"/>
+			<item value="부서/"/>
+			<item value="CAREER"/>
+			<item value="deptInput"/>
 			<item value="param2"/>
 			<item value="addCertificateRow"/>
 			<item value="근무형태"/>
 			<item value="educationCheck"/>
-			<item value="param"/>
-			<item value="workType"/>
-			<item value="workTypeInput"/>
-			<item value="education"/>
-			<item value="educationOn"/>
-			<item value="educateInsert"/>
-			<item value="checked.checked"/>
-			<item value="careerChecked"/>
-			<item value="careerCheck"/>
-			<item value="careerChecked."/>
-			<item value="saveBtn"/>
 		</list>
 		<list key="replacehistory">
 		</list>

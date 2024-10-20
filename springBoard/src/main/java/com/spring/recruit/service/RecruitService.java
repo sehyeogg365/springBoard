@@ -21,8 +21,6 @@ public interface RecruitService {
 	//학력
 	public int educateInsert(EducationVo educationVo) throws Exception;
 
-	public int educateDelete(EducationVo educationVo) throws Exception;
-
 	public EducationVo educateSelect(String seq) throws Exception;
 
 	public int educateExistence(String seq) throws Exception;
@@ -32,8 +30,6 @@ public interface RecruitService {
 	//경력
 	public int careerInsert(CareerVo careerVo) throws Exception;
 	
-	public int careerDelete(CareerVo careerVo) throws Exception;
-	
 	public CareerVo careerSelect(String seq) throws Exception;
 	
 	public int careerExistence(String seq) throws Exception;
@@ -42,8 +38,6 @@ public interface RecruitService {
 	
 	//자격증
 	public int certificateInsert(CertificateVo certificateVo) throws Exception;
-	
-	public int certificateDelete(CertificateVo certificateVo) throws Exception;
 	
 	public CertificateVo certificateSelect(String seq) throws Exception;
 	

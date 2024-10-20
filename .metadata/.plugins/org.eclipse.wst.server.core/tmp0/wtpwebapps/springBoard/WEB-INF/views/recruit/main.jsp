@@ -251,14 +251,283 @@
 			
 			var $frm4 = $j('.certificateForm :input');
 			var param4 = $frm4.serialize();
-			
-		 	alert("param1" + param1);
-		 	alert("param2" + param2);
-		 	alert("param3" + param3);
-		 	alert("param4" + param4);
+		
 		 	
 		 	let param = param1 +'&' + param2 +'&'+ param3 +'&'+ param4;
+		 	param+= '&submit=' + 'N';//추가내용
+			//recruit정보들 입력
+			let name = $j("#nameInput").val();
+			let birth = $j("#birthInput").val();
+			let gender = $j("#genderInput").val();
+			let phone = $j("#phoneInput").val();
+			let email = $j("#emailInput").val();
+			let address = $j("#addressInput").val();
+			let location =$j("#locationInput").val();
+			let workType = $j("#workTypeInput").val();
+			
+			var check = document.querySelector('input[name="educationCheck"]');
+			
+			var careerChecked = document.querySelector('input[name="careerCheck"]'); 
+				
+			var certificateChecked = document.querySelector('input[name="certificateCheck"]'); 
+			
+			if(!check.checked){
+				alert("학력체크박스를 체크해주세요");
+				return;	
+			}
+			
+			
+			//학력정보를 입력 유효성검사
+			let startPeriod = $j("#startDate").val();
+			let endPeriod = $j("#endDate").val();
+			let division = $j("#divisionInput").val();
+			let school = $j("#schoolInput").val();
+			let schoolLocation = $j("#schoolLocationInput").val();
+			let major = $j("#majorInput").val();
+			let grade = $j("#gradeInput").val();
+			
+			//경력 정보
+			let seq = $j("#seqInput").val();
+			
+			let employmentDate = $j("#employmentDate").val();
+			let resignDate = $j("#resignDate").val();
+			let company = $j("#compInput").val();
+			let dept = $j("#deptInput").val();
+			let area = $j("#areaInput").val();
+			
+			let part = dept.split("/");
+			let task = part[0]; 
+			let salary = part[1] + part[2];  
+					
+			var slashCount = (dept.match(/\//g) || []).length;
+			
+			//경력체크 되었을때
+			if(careerChecked.checked){
+				if(employmentDate == ""){
+					alert("고용일을 입력해주세요.");
+					$j("#employmentDate").focus()
+					return ;
+				}
+				
+				if(employmentDate != null && employmentDate.length != 7){
+					alert("고용일을 YYYY.MM 형식으로 입력해주세요.");
+					$j("#employmentDate").focus()
+					return ;
+				}
+				
+				if(resignDate == ""){
+					alert("퇴사일을 입력해주세요.");
+					$j("#resignDate").focus()
+					return ;
+				}
+				
+				if(resignDate != null && resignDate.length != 7){
+					alert("퇴사일을 YYYY.MM 형식으로 입력해주세요.");
+					$j("#resignDate").focus()
+					return ;
+				}	
+				
+				if(company == ""){
+					alert("회사명을 입력해주세요.");
+					$j("#compInput").focus()
+					return ;
+				}
+				if(dept == ""){
+					alert("부서명을 입력해주세요.");
+					$j("#deptInput").focus()
+					return ;
+				}
+				
+				if(slashCount !== 2){
+					alert("부서/직급/직책 형식이 안 맞습니다.");
+					$j("#deptInput").focus()
+					return ;
+				}
+				
+				if(area == ""){
+					alert("지역을 입력해주세요.");
+					$j("#areaInput").focus()
+					return ;
+				}
+				
+			}
+			
+			
+			//자격증 정보
+			let ceritificate = $j("#ceritificateInput").val();
+			let acquisitionDate = $j("#acquisitionDate").val();
+			let issuePlace = $j("#issuePlaceInput").val();
+
+			//자격증 체크 되었을때
+			if(certificateChecked.checked){
+				if(ceritificate == ""){
+					alert("자격증을 입력해주세요.");
+					$j("#ceritificateInput").focus()
+					return ;
+				}
+				
+				if(acquisitionDate == ""){
+					alert("취득일을 입력해주세요.");
+					$j("#acquisitionDate").focus()
+					return ; 
+				}
+				
+				if(acquisitionDate != null && acquisitionDate.length !=7){
+					alert("취득일을 YYYY.MM형태로 입력하세요.");
+					$j("#acquisitionDate").focus()
+					return ;
+				}
+				
+				if(issuePlace == ""){
+					alert("발행처를 입력해주세요.");
+					$j("#issuePlaceInput").focus()
+					return ;
+				}	
+			}
+			
+			
+			if(name == ""){
+				alert("이름을 입력하세요.");
+				$j("#nameInput").focus()
+				return ;
+			}
+			if(birth == ""){
+				alert("생년월일을 입력하세요.");
+				$j("#birthInput").focus()
+				return ;
+			}
+			if(birth != "" && birth.length != 10){
+				alert("생일 YYYY.MM.DD 형태로 입력해주세요.");
+				$j("#birthInput").focus()
+				return ;
+			}	
+			if(gender == ""){
+				alert("성별을 선택하세요.");
+				$j("#genderInput").focus()
+				return ;
+			}
+			if(phone == ""){
+				alert("전화번호를 입력하세요.");
+				$j("#phoneInput").focus()
+				return ;
+			}			
+			if(email == ""){
+				alert("이메일을 입력하세요.");
+				$j("#emailInput").focus()
+				return ;
+			}
+			if(address == ""){
+				alert("주소를 입력하세요.");
+				$j("#addressInput").focus()
+				return ;
+			}
+			if(location == ""){
+				alert("희망근무지를 입력하세요.");
+				$j("#locationInput").focus()
+				return ;
+			}
+			if(workType == ""){
+				alert("근무형태를 입력하세요.");
+				$j("#workTypeInput").focus()
+				return ;
+			}
+			
+			if(startPeriod == ""){
+				alert("재학기간 시작일을 입력하세요.");
+				$j("#startDate").focus()
+				return ;
+			}
+			if(startPeriod.length != 7){
+				alert("재학기간 시작일 YYYY.MM형태로 입력하세요.");
+				$j("#startDate").focus()
+				return ;
+			}
+			if(endPeriod == ""){
+				alert("재학기간 종료일을 입력하세요.");
+				$j("#endDate").focus()
+				return ;
+			}
+			if(endPeriod.length != 7){
+				alert("재학기간 종료일 YYYY.MM형태로 입력하세요.");
+				$j("#endDate").focus()
+				return ;
+			}
+			if(division == ""){
+				alert("구분셀렉터를 선택하세요.");
+				$j("#divisionInput").focus()
+				return ;
+			}
+			if(school == ""){
+				alert("학교를 입력하세요.");
+				$j("#schoolInput").focus()
+				return ;
+			}
+			if(schoolLocation == ""){
+				alert("소재지를 입력하세요.");
+				$j("#schoolLocationInput").focus()
+				return ;
+			}
+			if(major == ""){
+				alert("전공을 입력하세요.");
+				$j("#majorInput").focus()
+				return ;
+			}
+			if(grade == ""){
+				alert("학점을 입력하세요.");
+				$j("#gradeInput").focus()
+				return ;
+			}
+			if(grade.length < 3){
+				alert("학점을 x.x 형태로 입력하세요.");
+				$j("#gradeInput").focus()
+				return ;
+			}
+			
+
+			$j.ajax({
+				url : "/recruit/recruitInsertAction.do",
+			    dataType: "json",
+			    type: "POST",
+			    data : param,
+			    success: function(data, textStatus, jqXHR)
+			    {
+					alert("작성완료");
+					
+					alert("메세지:"+data.success);
+					
+					location.reload();
+					//여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나? 
+					
+			    },
+			    error: function (jqXHR, textStatus, errorThrown)
+			    {
+			    	alert("실패");
+			    	alert("param" + param);
+			    	alert("textStatus" + textStatus);
+			    }
+			});
+			
+		});
+		
+		$j("#submitBtn").on("click", function(event){
+			event.preventDefault();
+			
+			
+			var $frm = $j('.recruitForm :input');
+			var param1 = $frm.serialize();
+			
+			var $frm2 = $j('.educateForm :input');
+			var param2 = $frm2.serialize();
+			
+			var $frm3 = $j('.careerForm :input');
+			var param3 = $frm3.serialize();
+			
+			var $frm4 = $j('.certificateForm :input');
+			var param4 = $frm4.serialize();
+		
 		 	
+		 	let param = param1 +'&' + param2 +'&'+ param3 +'&'+ param4;
+		 	param+= '&submit=' + 'Y';//추가내용
 			//recruit정보들 입력
 			let name = $j("#nameInput").val();
 			let birth = $j("#birthInput").val();
@@ -512,13 +781,6 @@
 			    	alert("textStatus" + textStatus);
 			    }
 			});
-			
-		});
-		
-		$j("#submitBtn").on("click", function(event){
-			event.preventDefault();
-			
-			
 			
 		});
 		
@@ -1125,8 +1387,16 @@
 		<tr style="border:none;">
 			<td style="border:none;">
 			<div style="text-align: right;"><!-- 제출시 버튼이 안보이게하던, 클릭을 막던 하자 -->
-				<button type="button" id="educationInsert" onclick='addEducationRow()'>추가</button><!-- 행추가 -->
-				<button type="button" id="educationDelete"  onclick='deleteEducationRow(-1)'>삭제</button><!-- 행삭제 -->
+				<c:choose> 
+				<c:when test="${recruit.submit eq 'Y'}">
+					<button id="">추가</button><!-- 행추가 -->
+					<button id="">삭제</button><!-- 행삭제 -->
+				</c:when>	
+				<c:otherwise>
+					<button type="button" id="educationInsert" onclick='addEducationRow()'>추가</button><!-- 행추가 -->
+					<button type="button" id="educationDelete"  onclick='deleteEducationRow(-1)'>삭제</button><!-- 행삭제 -->
+				</c:otherwise>
+				</c:choose>		
 			</div>
 			</td>
 		</tr>
@@ -1204,8 +1474,16 @@
 		</td></tr>	
 		<tr style="border:none;"><td style="border:none;">
 		<div style="text-align: right;"><!-- 제출시 버튼이 안보이게하던, 클릭을 막던 하자 -->
-			<button id="careerInsert" onclick='addCareerRow()'>추가</button><!-- 행추가 -->
-			<button id="careerDelete" onclick='deleteCareerRow(-1)'>삭제</button><!-- 행삭제 -->
+			<c:choose> 
+				<c:when test="${recruit.submit eq 'Y'}">
+					<button id="">추가</button><!-- 행추가 -->
+					<button id="">삭제</button><!-- 행추가 -->
+				</c:when>	
+				<c:otherwise>
+					<button id="careerInsert" onclick='addCareerRow()'>추가</button><!-- 행추가 -->
+					<button id="careerDelete" onclick='deleteCareerRow(-1)'>삭제</button><!-- 행삭제 -->
+				</c:otherwise>
+			</c:choose>			
 		</div>
 		<br>
 		</td></tr>
@@ -1241,7 +1519,7 @@
 						<input id="compInput" name="compName" type="text" style="width: 95%;" maxlength='254' size='12' oninput="filterInput2(this)" value="${career.compName }"/>
 					</td>
 					<td width="">
-						<input id="deptInput" name="task" type="text" style="width: 95%;" maxlength='254' size='12' oninput="filterInput5(this)" value="${career.task }"/>
+						<input id="deptInput" name="task" type="text" style="width: 95%;" maxlength='254' size='12' oninput="filterInput5(this)" value="${career.task }/${career.salary}"/>
 					</td>
 					<td width="">
 						<input id="areaInput" name="location" type="text" style="width: 95%;" maxlength='254' size='12' oninput="filterInput2(this)"  value="${career.location }"/>
@@ -1258,8 +1536,16 @@
 		</td></tr>
 		<tr style="border:none;"><td style="border:none;">
 			<div style="text-align: right;"><!-- 제출시 버튼이 안보이게하던, 클릭을 막던 하자 -->
-				<button id="certificateInsert" onclick='addCertificateRow()'>추가</button><!-- 행추가 -->
-				<button id="certificateDelete" onclick='deleteCertificateRow(-1)'>삭제</button><!-- 행추가 -->
+				<c:choose> 
+					<c:when test="${recruit.submit eq 'Y'}">
+						<button id="">추가</button><!-- 행추가 -->
+						<button id="">삭제</button><!-- 행추가 -->
+					</c:when>	
+					<c:otherwise> <!-- else와 동일 -->
+						<button id="certificateInsert" onclick='addCertificateRow()'>추가</button><!-- 행추가 -->
+						<button id="certificateDelete" onclick='deleteCertificateRow(-1)'>삭제</button><!-- 행추가 -->
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</td></tr>
 		<br>
@@ -1304,8 +1590,16 @@
 		</td></tr>
 		</table>
 		<div class="mt-3"style="text-align: center;"><!-- 제출시 버튼이 안보이게하던, 클릭을 막던 하자 -->
-				<button type="button" id="saveBtn">저장</button>
-				<button type="button" id="submitBtn">제출</button>
+			<c:choose> 
+				<c:when test="${recruit.submit eq 'Y'}">
+					<button type="button" id="">저장</button>
+					<button type="button" id="">제출</button>
+				</c:when>	
+				<c:otherwise> <!-- else와 동일 -->
+					<button type="button" id="saveBtn">저장</button>
+					<button type="button" id="submitBtn">제출</button>
+				</c:otherwise>
+			</c:choose>
 		</div>
 </body>
 </html>

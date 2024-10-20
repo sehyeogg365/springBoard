@@ -49,12 +49,6 @@ public class RecruitDaoImpl implements RecruitDao{
 	}
 	
 	@Override
-	public int educateDelete(EducationVo educationVo) throws Exception{
-		
-		return sqlSession.delete("recruit.educateDelete", educationVo);
-	}
-	
-	@Override
 	public EducationVo educateSelect(EducationVo educationVo) throws Exception{
 		
 		return sqlSession.selectOne("recruit.educateSelect", educationVo);
@@ -74,12 +68,6 @@ public class RecruitDaoImpl implements RecruitDao{
 	public int careerInsert(CareerVo careerVo) throws Exception{
 		
 		return sqlSession.insert("recruit.careerInsert", careerVo);
-	}
-	
-	@Override
-	public int careerDelete(CareerVo careerVo) throws Exception{
-		
-		return sqlSession.delete("recruit.careerDelete", careerVo);
 	}
 
 	@Override
@@ -102,12 +90,6 @@ public class RecruitDaoImpl implements RecruitDao{
 	public int certificateInsert(CertificateVo certificateVo) throws Exception{
 		
 		return sqlSession.insert("recruit.certificateInsert", certificateVo);
-	}
-	
-	@Override
-	public int certificateDelete(CertificateVo certificateVo) throws Exception{
-		
-		return sqlSession.delete("recruit.certificateDelete", certificateVo);
 	}
 	
 	@Override
