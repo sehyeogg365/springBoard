@@ -75,9 +75,9 @@ public class RecruitController {
       
         
          RecruitVo recruitVo = new RecruitVo();
-         EducationVo educationVo = new EducationVo();
-         CareerVo careerVo = new CareerVo();
-         CertificateVo certificateVo = new CertificateVo();
+         List<EducationVo> educationList = new ArrayList<>();
+         List<CareerVo> careerList = new ArrayList<>();
+         List<CertificateVo> certificateList = new ArrayList<>();
 //        
 
          // 데이터 조회
@@ -86,13 +86,13 @@ public class RecruitController {
              System.out.println("recruitVo: " + recruitVo);
              
              if(recruitVo != null){
-             educationVo = recruitService.educateSelect(recruitVo.getSeq());
-             System.out.println("educationVo: " + educationVo);
+             educationList = recruitService.educateSelect(recruitVo.getSeq());
+             System.out.println("educationVo: " + educationList);
              
-             careerVo = recruitService.careerSelect(recruitVo.getSeq());
-             System.out.println("careerVo: " + careerVo);
-             certificateVo = recruitService.certificateSelect(recruitVo.getSeq());
-             System.out.println("certificateVo" + certificateVo);
+             careerList = recruitService.careerSelect(recruitVo.getSeq());
+             System.out.println("careerVo: " + careerList);
+             certificateList = recruitService.certificateSelect(recruitVo.getSeq());
+             System.out.println("certificateVo" + certificateList);
              }
          } catch (Exception e) {
              e.printStackTrace();  // 오류 로그 출력
@@ -109,24 +109,24 @@ public class RecruitController {
         	 model.addAttribute("recruit", recruitVo);
          }
         
-         if (educationVo == null) {
-        	 model.addAttribute("educate", new EducationVo()); // 기본값으로 빈 객체를 전달
+         if (educationList == null) {
+        	 model.addAttribute("educate", new ArrayList<>()); // 기본값으로 빈 객체를 전달
 
          } else {//있을때 디비값
-    	     model.addAttribute("educate", educationVo);
+    	     model.addAttribute("educateList", educationList);
          }
      
-         if (careerVo == null) {
-        	model.addAttribute("career", new CareerVo()); // 기본값으로 빈 객체를 전달
+         if (careerList == null) {
+        	model.addAttribute("career", new ArrayList<>()); // 기본값으로 빈 객체를 전달
 
          } else {
-        	model.addAttribute("career", careerVo);
+        	model.addAttribute("careerList", careerList);
          }
-         if (certificateVo == null) {
-        	 model.addAttribute("certificate", new CertificateVo()); // 기본값으로 빈 객체를 전달
+         if (certificateList == null) {
+        	 model.addAttribute("certificate", new ArrayList<>()); // 기본값으로 빈 객체를 전달
         
          } else {
-        	 model.addAttribute("certificate", certificateVo);
+        	 model.addAttribute("certificateList", certificateList);
          }
  
 		return "/recruit/main";

@@ -26,8 +26,8 @@
     <fullyQualifiedTypeName name="java.lang.Exception"/>
     <fullyQualifiedTypeName name="com.spring.recruit.vo.RecruitVo"/>
     <fullyQualifiedTypeName name="com.spring.recruit.vo.EducationVo"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.spring.recruit.controller.RecruitController"/>
-    <fullyQualifiedTypeName name="com.spring.recruit.vo.CareerVo"/>
     <fullyQualifiedTypeName name="com.spring.recruit.vo.CertificateVo"/>
+    <fullyQualifiedTypeName name="com.spring.recruit.vo.CareerVo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

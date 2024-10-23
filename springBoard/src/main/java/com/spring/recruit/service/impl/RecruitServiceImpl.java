@@ -62,7 +62,7 @@ public class RecruitServiceImpl implements RecruitService {
 	
 	//학력 조회 
 	@Override 
-	public EducationVo educateSelect(String seq) throws Exception{
+	public List<EducationVo> educateSelect(String seq) throws Exception{
 		
 		EducationVo educationVo = new EducationVo();
 		
@@ -106,7 +106,7 @@ public class RecruitServiceImpl implements RecruitService {
 	
 	//경력 조회
 	@Override
-	public CareerVo careerSelect(String seq) throws Exception{
+	public List<CareerVo> careerSelect(String seq) throws Exception{
 		
 		CareerVo careerVo = new CareerVo();
 		
@@ -149,7 +149,7 @@ public class RecruitServiceImpl implements RecruitService {
 	
 	//자격증 조회
 	@Override
-	public CertificateVo certificateSelect(String seq) throws Exception{
+	public List<CertificateVo> certificateSelect(String seq) throws Exception{
 		
 		CertificateVo certificateVo = new CertificateVo();
 		

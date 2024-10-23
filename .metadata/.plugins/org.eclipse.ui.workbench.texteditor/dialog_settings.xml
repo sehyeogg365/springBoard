@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="saveBtn"/>
+		<item key="selection" value="careerForm"/>
 		<list key="findhistory">
+			<item value="careerForm"/>
+			<item value="#saveBtn"/>
+			<item value="#submitBtn"/>
 			<item value="saveBtn"/>
-			<item value="submitBtn"/>
-			<item value="Career Existence Count:"/>
-			<item value="educateCnt"/>
-			<item value="careerCnt"/>
-			<item value="careerExistence"/>
-			<item value="carrerCnt"/>
-			<item value="careerVo:"/>
-			<item value="부서/"/>
-			<item value="CAREER"/>
-			<item value="deptInput"/>
-			<item value="param2"/>
-			<item value="addCertificateRow"/>
-			<item value="근무형태"/>
-			<item value="educationCheck"/>
+			<item value="educationInsert"/>
+			<item value="certificateChecked"/>
+			<item value="filterInput2"/>
+			<item value="educationTable"/>
+			<item value="codeNamePhoneList"/>
+			<item value="경력사항"/>
+			<item value="calculateDifference"/>
+			<item value="대학교"/>
+			<item value="enrollmentPeriod"/>
+			<item value="startDate"/>
+			<item value="${educate.admissionDate}"/>
 		</list>
 		<list key="replacehistory">
 		</list>

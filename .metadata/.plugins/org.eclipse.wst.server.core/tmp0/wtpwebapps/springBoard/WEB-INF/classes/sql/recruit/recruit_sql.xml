@@ -47,7 +47,7 @@
     </resultMap>
     
     <!-- 채용정보 -->
-    
+    <!-- 저장/제출 -->
     <insert id="recruitInsert" parameterType="com.spring.recruit.vo.RecruitVo">	
 	        INSERT INTO 
 	        RECRUIT
@@ -76,38 +76,6 @@
 	        )
 	  
     </insert>
-    <!-- 제출 -->
-    <insert id="recruitSubmit" parameterType="com.spring.recruit.vo.RecruitVo">
-    	INSERT INTO
-    	RECRUIT
-    	(
-    		SEQ
-    		,NAME
-    		,BIRTH
-    		,FIELD3
-    		,PHONE
-    		,EMAIL
-    		,ADDR
-    		,LOCATION
-    		,WORK_TYPE
-    		,SUBMIT
-    	)
-    	VALUES
-    	(
-    		seq_sequence.NEXTVAL
-    		,#{name}
-    		,#{birth}
-    		,#{gender}
-    		,#{phone}
-    		,#{email}
-    		,#{addr}
-    		,#{hopeLocation}
-    		,#{workType}
-    		,'Y'
-    	
-    	)
-    </insert>
-    
     <select id="recruitSelect" parameterType="com.spring.recruit.vo.RecruitVo" resultMap="recruitVo">
     	SELECT *
     	FROM

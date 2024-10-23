@@ -21,7 +21,7 @@ public interface RecruitDao {
 	//학력
 	public int educateInsert(EducationVo educationVo) throws Exception;
 		
-	public EducationVo educateSelect(EducationVo educationVo) throws Exception;
+	public List<EducationVo> educateSelect(EducationVo educationVo) throws Exception;
 	
 	public int educateExistence(EducationVo educationVo) throws Exception;
 	
@@ -30,7 +30,7 @@ public interface RecruitDao {
 	//경력
 	public int careerInsert(CareerVo careerVo) throws Exception;
 	
-	public CareerVo careerSelect(CareerVo careerVo) throws Exception;
+	public List<CareerVo> careerSelect(CareerVo careerVo) throws Exception;
 	
 	public int careerExistence(CareerVo careerVo) throws Exception;
 	
@@ -39,7 +39,7 @@ public interface RecruitDao {
 	//자격증
 	public int certificateInsert(CertificateVo certificateVo) throws Exception;
 	
-	public CertificateVo certificateSelect(CertificateVo certificateVo) throws Exception;
+	public List<CertificateVo> certificateSelect(CertificateVo certificateVo) throws Exception;
 	
 	public int certificateExistence(CertificateVo certificateVo) throws Exception;
 	

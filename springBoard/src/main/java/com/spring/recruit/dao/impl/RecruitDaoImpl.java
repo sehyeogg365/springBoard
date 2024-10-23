@@ -49,9 +49,9 @@ public class RecruitDaoImpl implements RecruitDao{
 	}
 	
 	@Override
-	public EducationVo educateSelect(EducationVo educationVo) throws Exception{
+	public List<EducationVo> educateSelect(EducationVo educationVo) throws Exception{
 		
-		return sqlSession.selectOne("recruit.educateSelect", educationVo);
+		return sqlSession.selectList("recruit.educateSelect", educationVo);
 	}
 	
 	@Override
@@ -71,9 +71,9 @@ public class RecruitDaoImpl implements RecruitDao{
 	}
 
 	@Override
-	public CareerVo careerSelect(CareerVo careerVo) throws Exception{
+	public List<CareerVo> careerSelect(CareerVo careerVo) throws Exception{
 		
-		return sqlSession.selectOne("recruit.careerSelect", careerVo);
+		return sqlSession.selectList("recruit.careerSelect", careerVo);
 	}
 	@Override
 	public int careerExistence (CareerVo careerVo) throws Exception{
@@ -93,9 +93,9 @@ public class RecruitDaoImpl implements RecruitDao{
 	}
 	
 	@Override
-	public CertificateVo certificateSelect(CertificateVo certificateVo) throws Exception{
+	public List<CertificateVo> certificateSelect(CertificateVo certificateVo) throws Exception{
 		
-		return sqlSession.selectOne("recruit.certificateSelect", certificateVo);
+		return sqlSession.selectList("recruit.certificateSelect", certificateVo);
 	}
 	
 	@Override
