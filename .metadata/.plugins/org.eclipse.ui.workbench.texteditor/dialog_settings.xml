@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="careerForm"/>
+		<item key="selection" value="&quot;allCheck&quot;"/>
 		<list key="findhistory">
+			<item value="&quot;allCheck&quot;"/>
 			<item value="careerForm"/>
 			<item value="#saveBtn"/>
 			<item value="#submitBtn"/>
@@ -22,7 +23,6 @@
 			<item value="대학교"/>
 			<item value="enrollmentPeriod"/>
 			<item value="startDate"/>
-			<item value="${educate.admissionDate}"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -60,12 +60,12 @@
 						Type
 						</td>
 						<td width="400">
-							<select id="codeName" name="boardType" style="width:150px;">
+							<select id="codeName" name="boardType" style="width:150px;"><!-- 밸류값 :아이디 텍스트값 코드네임 -->
 								<c:forEach items="${codeNameList }" var="list">
 									<c:choose>
 									<c:when test="${list.codeType eq 'menu' }">
 										<option value="${list.codeId }">${list.codeName }</option>
-									</c:when><!-- 밸류값 :아이디 텍스트값 코드네임 -->
+									</c:when>
 									</c:choose>
 								</c:forEach>
 							</select>
