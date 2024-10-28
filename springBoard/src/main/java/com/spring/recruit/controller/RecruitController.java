@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.board.HomeController;
@@ -136,7 +137,9 @@ public class RecruitController {
 	@RequestMapping(value = "/recruit/recruitInsertAction.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String recruitInsertAction(Locale locale, RecruitVo recruitVo, EducationVo educationVo
-								, CareerVo careerVo, CertificateVo certificateVo) throws Exception{
+								, CareerVo careerVo, CertificateVo certificateVo
+								, @RequestParam(value = "careerCheck", defaultValue = "false") boolean careerCheck
+                                , @RequestParam(value = "certificateCheck", defaultValue = "false") boolean certificateCheck) throws Exception{
 		
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
@@ -188,11 +191,15 @@ public class RecruitController {
 	    //초기값 0 설정 다음 vo 값 존재할시에만 저장
 		int carrerCnt = recruitService.careerExistence(recruitVo.getSeq());
 	    int careerResultCnt = 0;
-	    if(carrerCnt == 0 ) {
-	    	careerResultCnt = recruitService.careerInsert(careerVo);//정보 저장
-	    } else {
-	    	careerResultCnt = recruitService.careerUpdate(careerVo);//정보 업데이트
+	    
+	    if(careerCheck) {
+	    	if(carrerCnt == 0 ) {
+		    	careerResultCnt = recruitService.careerInsert(careerVo);//정보 저장
+		    } else {
+		    	careerResultCnt = recruitService.careerUpdate(careerVo);//정보 업데이트
+		    }
 	    }
+	    
 	    System.out.println("Career Existence Count: " + carrerCnt);
 	    System.out.println(careerVo.getCompName());
 	    System.out.println(careerVo.getStartPeriod());
@@ -205,12 +212,13 @@ public class RecruitController {
 	    int certificateCnt = recruitService.certificateExistence(recruitVo.getSeq());
 	    int certificateResultCnt = 0;
 	    
-	    if(certificateCnt == 0) {
-	    	certificateResultCnt = recruitService.certificateInsert(certificateVo);//정보 저장
-	    } else {
-	    	certificateResultCnt = recruitService.certificateUpdate(certificateVo);//정보 업데이트
-	    }
-	        
+	    if(certificateCheck) {
+	    	if(certificateCnt == 0) {
+		    	certificateResultCnt = recruitService.certificateInsert(certificateVo);//정보 저장
+		    } else {
+		    	certificateResultCnt = recruitService.certificateUpdate(certificateVo);//정보 업데이트
+		    }
+	    }     
 	    
 	    result.put("success", (resultCnt > 0 && educationResultCnt > 0)?"Y":"N");
 		

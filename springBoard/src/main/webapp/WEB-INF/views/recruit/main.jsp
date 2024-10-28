@@ -251,15 +251,17 @@
 			
 			var $frm2 = $j('.educateForm :input');
 			var param2 = $frm2.serialize();
-			//여기도 체크박스 인풋이 체크되었을때만 넣기 
-			//if(careerChecked && careerChecked.checked) {
-				
-			//}
 			
-			//if(certificateChecked.checked){
-				
-			//}
+			var $frm3 = $j('.careerForm :input'); 
+			var param3 = $frm3.serialize();
+			
+			var $frm4 = $j('.certificateForm :input');
+			var param4 = $frm4.serialize();
+			
+			//여기도 체크박스 인풋이 체크되었을때만 넣기 
+
 			let param = param1 +'&' + param2;// +'&'+ param3 +'&'+ param4;
+			
 			if (careerChecked && careerChecked.checked) {
 				var $frm3 = $j('.careerForm :input'); 
 				var param3 = $frm3.serialize();
@@ -319,6 +321,7 @@
 			
 			//경력체크 되었을때
 			if(careerChecked.checked){
+			    
 				if(employmentDate == ""){
 					alert("고용일을 입력해주세요.");
 					$j("#employmentDate").focus()
@@ -376,6 +379,7 @@
 
 			//자격증 체크 되었을때
 			if(certificateChecked.checked){
+			    
 				if(ceritificate == ""){
 					alert("자격증을 입력해주세요.");
 					$j("#ceritificateInput").focus()
@@ -534,13 +538,27 @@
 			var $frm2 = $j('.educateForm :input');
 			var param2 = $frm2.serialize();
 			
-			var $frm3 = $j('.careerForm :input');
-			var param3 = $frm3.serialize();
+			//var $frm3 = $j('.careerForm :input');
+			//var param3 = $frm3.serialize();
 			
-			var $frm4 = $j('.certificateForm :input');
-			var param4 = $frm4.serialize();
+			//var $frm4 = $j('.certificateForm :input');
+			//var param4 = $frm4.serialize();
 			 	
-		 	let param = param1 +'&' + param2 +'&'+ param3 +'&'+ param4;
+		 	//let param = param1 +'&' + param2 +'&'+ param3 +'&'+ param4;
+		 	
+			let param = param1 +'&' + param2;// +'&'+ param3 +'&'+ param4;
+			
+			if (careerChecked && careerChecked.checked) {
+				var $frm3 = $j('.careerForm :input'); 
+				var param3 = $frm3.serialize();
+			    param += '&' + param3;
+			}
+
+			if (certificateChecked && certificateChecked.checked) {
+				var $frm4 = $j('.certificateForm :input');
+				var param4 = $frm4.serialize();
+			    param += '&' + param4;
+			}
 		 	param+= '&submit=' + 'Y';//추가내용
 			//recruit정보들 입력
 			let name = $j("#nameInput").val();

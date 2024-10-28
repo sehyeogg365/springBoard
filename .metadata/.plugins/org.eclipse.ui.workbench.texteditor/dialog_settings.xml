@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="&quot;allCheck&quot;"/>
+		<item key="selection" value="resignDate"/>
 		<list key="findhistory">
+			<item value="resignDate"/>
+			<item value="careerChecked"/>
 			<item value="&quot;allCheck&quot;"/>
 			<item value="careerForm"/>
 			<item value="#saveBtn"/>
@@ -21,8 +23,6 @@
 			<item value="경력사항"/>
 			<item value="calculateDifference"/>
 			<item value="대학교"/>
-			<item value="enrollmentPeriod"/>
-			<item value="startDate"/>
 		</list>
 		<list key="replacehistory">
 		</list>
