@@ -33,6 +33,10 @@ Git Hub
 Apache Tomcat
 <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=Apache Tomcat&logoColor=white"/>
 
+Maven
+<img src="https://img.shields.io/badge/Apache Tomcat-C71A36?style=flat-square&logo=Apache Maven&logoColor=white"/>
+
+
 <a href="https://www.miricanvas.com/v/13t40q7">포트폴리오</a>
 
 <div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
