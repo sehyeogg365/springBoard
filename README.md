@@ -34,7 +34,7 @@ Apache Tomcat
 <img src="https://img.shields.io/badge/Apache Tomcat-F8DC75?style=flat-square&logo=Apache Tomcat&logoColor=white"/>
 
 Maven
-<img src="https://img.shields.io/badge/Apache Tomcat-C71A36?style=flat-square&logo=Apache Maven&logoColor=white"/>
+<img src="https://img.shields.io/badge/Apache Maven-C71A36?style=flat-square&logo=Apache Maven&logoColor=white"/>
 
 
 <a href="https://www.miricanvas.com/v/13t40q7">포트폴리오</a>
