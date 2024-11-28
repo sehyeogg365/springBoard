@@ -1,4 +1,21 @@
- 💪<b>Skills</b>
+# springBoard
+
+## 📖목차
+  * [개발환경](#개발환경) <br>
+  * [Skills](#Skills)<br>
+  * [ERD](#ERD)<br>
+  * [만든계기](#만든계기)<br>
+  * [화면구성](#화면구성)<br>
+  * [핵심기능](#핵심기능)<br>
+ ## 개발환경
+<div class="d-flex">
+
+
+ <img src="https://img.shields.io/badge/sourcetree-0052CC?style=flat-square&logo=sourcetree&logoColor=black"/>
+
+</div>
+
+ ## 💪Skills
   
  <div class="text-center">
  JAVA
@@ -36,8 +53,27 @@ Apache Tomcat
 Maven
 <img src="https://img.shields.io/badge/Apache Maven-C71A36?style=flat-square&logo=Apache Maven&logoColor=white"/>
 
+백엔드
+* Java 11
+* SpringBoot 3.4.0
 
-<a href="https://www.miricanvas.com/v/13t40q7">포트폴리오</a>
+프론트엔드
+* Html5/css3
+* Javascript
 
+빌드 툴
+* Maven
+
+데이터베이스
+* Oracle
+
+## ERD
+
+
+## 만든계기
+
+## 화면구성
+
+## 핵심기능
 <div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
 <div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTpXK4%2FbtsKivnXN4u%2FFMypLJCInI8jeqInokoQxk%2Fimg.png"/> </div>
