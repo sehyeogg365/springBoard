@@ -72,6 +72,12 @@ crud에대한 전반적인 복습과 체크박스 구현을  해보기 위해
 ## 화면구성
 <div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
 
+| 헤더1 | 헤더2 | 헤더3 |
+| --- | --- | --- |
+| 행1 열1 | 행1 열2 | 행1 열3 |
+| 행2 열1 | 행2 열2 | 행2 열3 |
+| 행3 열1 | 행3 열2 | 행3 열3 |
+
 ## 핵심기능
 
 
