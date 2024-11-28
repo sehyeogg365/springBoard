@@ -68,12 +68,15 @@ Maven
 * Oracle
 
 ## ERD
-
+<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
 
 ## 만든계기
+crud에대한 전반적인 복습과 체크박스 구현을  해보기 위해
 
 ## 화면구성
 
-## 핵심기능
-<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
 <div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTpXK4%2FbtsKivnXN4u%2FFMypLJCInI8jeqInokoQxk%2Fimg.png"/> </div>
+
+## 핵심기능
+
+
