@@ -70,13 +70,12 @@ Maven
 crud에대한 전반적인 복습과 체크박스 구현을  해보기 위해
 
 ## 화면구성
-<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
 
-| 헤더1 | 헤더2 | 헤더3 |
-| --- | --- | --- |
-| 행1 열1 | 행1 열2 | 행1 열3 |
-| 행2 열1 | 행2 열2 | 행2 열3 |
-| 행3 열1 | 행3 열2 | 행3 열3 |
+| 회원가입 | 로그인화면 | 추가화면 | 수정화면 |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+|<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb3kPot%2FbtsKYDMRSFs%2Fbl6evgSjoV5PquLNKHfZY1%2Fimg.png" width="200px" height="200px"/>| <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbhpfRS%2FbtsK0LWHn1M%2FIP4yYb6oKDQ2Ai6ifIfkRk%2Fimg.png" width="200px" height="200px"/>| <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbijCj0%2FbtsKY0Ox7D2%2FFiEuv5mv5kPtcFrFsRHpm1%2Fimg.png" width="200px" height="200px"/>  | <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbFJ1xs%2FbtsKYLYrXhG%2FfKOzxp7t3t992skB3kZv81%2Fimg.png" width="200px" height="200px"/> |
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbdEuTu%2FbtsKZLQGcKU%2Fkb6eiP9kTLrdR3UOjHJ8Dk%2Fimg.png" width="200px" height="200px"/>
 
 ## 핵심기능
 
