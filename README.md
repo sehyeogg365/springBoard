@@ -9,15 +9,11 @@
   * [핵심기능](#핵심기능)<br>
  ## 개발환경
 <div class="d-flex">
-
-
+ <img src="https://img.shields.io/badge/eclipse-2C2255?style=flat-square&logo=eclipse&logoColor=white"/>
  <img src="https://img.shields.io/badge/sourcetree-0052CC?style=flat-square&logo=sourcetree&logoColor=black"/>
-
 </div>
 
  ## 💪Skills
-  
- <div class="text-center">
  JAVA
  <img src="https://img.shields.io/badge/JAVA-4479A1?style=flat-square&logo=JAVA&logoColor=white"/>
   
@@ -68,14 +64,13 @@ Maven
 * Oracle
 
 ## ERD
-<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
+<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTpXK4%2FbtsKivnXN4u%2FFMypLJCInI8jeqInokoQxk%2Fimg.png"/> </div>
 
 ## 만든계기
 crud에대한 전반적인 복습과 체크박스 구현을  해보기 위해
 
 ## 화면구성
-
-<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTpXK4%2FbtsKivnXN4u%2FFMypLJCInI8jeqInokoQxk%2Fimg.png"/> </div>
+<div class=""><img src ="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeqvOu%2FbtsKjwe4ZBM%2F4xK1clebwMUV60lupXhLnk%2Fimg.png"/> </div>
 
 ## 핵심기능
 
