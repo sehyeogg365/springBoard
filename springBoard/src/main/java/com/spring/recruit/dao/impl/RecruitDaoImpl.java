@@ -18,17 +18,15 @@ public class RecruitDaoImpl implements RecruitDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//채용정보 
+	// 채용정보
 	
 	@Override
 	public int recruitInsert(RecruitVo recruitVo) throws Exception{
-		
 		return sqlSession.insert("recruit.recruitInsert", recruitVo);
 	}
 	
 	@Override
 	public RecruitVo recruitSelect(RecruitVo recruitVo) throws Exception{
-		
 		return sqlSession.selectOne("recruit.recruitSelect", recruitVo);
 	}
 	
@@ -41,16 +39,14 @@ public class RecruitDaoImpl implements RecruitDao{
 	public int recruitUpdate(RecruitVo recruitVo) throws Exception{
 		return sqlSession.update("recruit.recruitUpdate", recruitVo);
 	}
-	//학력
+	// 학력
 	@Override
 	public int educateInsert(EducationVo educationVo) throws Exception{
-		
 		return sqlSession.insert("recruit.educateInsert", educationVo);
 	}
 	
 	@Override
 	public List<EducationVo> educateSelect(EducationVo educationVo) throws Exception{
-		
 		return sqlSession.selectList("recruit.educateSelect", educationVo);
 	}
 	
@@ -63,16 +59,14 @@ public class RecruitDaoImpl implements RecruitDao{
 	public int educateUpdate (EducationVo educationVo) throws Exception{
 		return sqlSession.update("recruit.educateUpdate", educationVo);
 	}
-	//경력
+	// 경력
 	@Override
 	public int careerInsert(CareerVo careerVo) throws Exception{
-		
 		return sqlSession.insert("recruit.careerInsert", careerVo);
 	}
 
 	@Override
 	public List<CareerVo> careerSelect(CareerVo careerVo) throws Exception{
-		
 		return sqlSession.selectList("recruit.careerSelect", careerVo);
 	}
 	@Override
@@ -85,16 +79,14 @@ public class RecruitDaoImpl implements RecruitDao{
 		return sqlSession.update("recruit.careerUpdate", careerVo);
 	}	
 	
-	//자격증
+	// 자격증
 	@Override
 	public int certificateInsert(CertificateVo certificateVo) throws Exception{
-		
 		return sqlSession.insert("recruit.certificateInsert", certificateVo);
 	}
 	
 	@Override
 	public List<CertificateVo> certificateSelect(CertificateVo certificateVo) throws Exception{
-		
 		return sqlSession.selectList("recruit.certificateSelect", certificateVo);
 	}
 	
@@ -107,6 +99,4 @@ public class RecruitDaoImpl implements RecruitDao{
 	public int certificateUpdate (CertificateVo certificateVo) throws Exception{
 		return sqlSession.update("recruit.certificateUpdate", certificateVo);
 	}
-	
-	
 }

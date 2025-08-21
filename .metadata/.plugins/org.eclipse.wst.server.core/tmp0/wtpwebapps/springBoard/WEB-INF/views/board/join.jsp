@@ -10,21 +10,19 @@
 <script type="text/javascript">
 	
 	$j(document).ready(function(){
-		
 		var isChecked = false;
 		
 		var isDuplicateId = true;//id중복여부	중복이되야 진행안되니 중복되는걸 기본값	
-		//유효성 검사 
+		// 유효성 검사
 		
 		//focus
 		$j("#idInput").focus()		
 			
 		//중복아이디 검사하고 교체시 바로 중복됩니다로 나오게 하기
 		$j("#idInput").on("input", function(){
-			//중복 관련된 상태 초기화
+			// 중복 관련된 상태 초기화
 			isChecked = false;
 			isDuplicateId = true;
-			
 		});
 		
 		$j("#duplicateBtn").on("click", function(event){
@@ -43,10 +41,10 @@
 			//그외일때 사용가능한 아이디입니다. d-none 없애기 
 			
 			$j.ajax({
-				url : "/board/isduplicateId.do",
+				url: "/board/isduplicateId.do",
 			    dataType: "json",
 			    type: "GET",
-			    data : {userId: id},
+			    data: {userId: id},
 				success: function(data, textStatus, jqxHR){
 					isChecked = true;//체크 한거니 true로 변경
 					isDuplicateId = data.success;//리스폰스 받은 밸류값에 따라 
@@ -64,14 +62,11 @@
 						alert("isDuplicateId: " + isDuplicateId);
 						alert("사용할수 있는 아이디 입니다.");
 					}
-				
-					
 				}
 				, error: function(data, textStatus, jqxHR){
 					alert("중복확인 에러");
 				}
 			});
-			
 		});
 	
 		$j("#joinBtn").on("click", function(event){
@@ -115,20 +110,17 @@
 				$j("#idInput").focus()
 				$j("#idInput").val("");
 				return ;
-			}		
-
+			}
 			if(pw == ""){
 				alert("비밀번호를 입력하세요.");
 				$j("#pwInput").focus()
 				return ;
 			}
-			
 			if(pw.length < 6 || pw.length > 12){				
 				alert("비밀번호길이를 6~12자로 해주세요");
 				$j("#pwInput").focus()
 				return ;
 			}
-			
 			if(pwConfirm == ""){
 				alert("비밀번호확인을 입력하세요.");
 				$j("#pwConfirmInput").focus()
@@ -144,21 +136,16 @@
 				$j("#nameInput").focus()
 				return ;
 			}
-			
-
 			if(checkEng.test(name)|| checkSpc.test(name)|| checkNum.test(name)){
 				alert("이름에 한글만 포함되어야 합니다.");
 				$j("#nameInput").val("");
 				$j("#nameInput").focus()
 				return ;
 			}
-		
-			
 			if(phoneInput1 == ""){
 				alert("핸드폰 번호 앞자리를 입력하세요.");
 				return ;
 			}
-			
 			if(phoneInput2.length != 4){
 				alert("핸드폰 번호 가운데자리 4자리로 입력하세요.");
 				$j("#phoneInput2").focus()
@@ -169,7 +156,6 @@
 				$j("#phoneInput3").focus()
 				return ;
 			}
-			
 
 			if(checkEng.test(phoneInput2) || checkSpc.test(phoneInput2) || checkKor.test(phoneInput2)){
 				alert("전화번호에 숫자만 포함되어야 합니다.");
@@ -185,7 +171,6 @@
 				return ;
 			}
 
-			
 			if(postNo !='' && !postNo.includes("-") ){
 				alert("postNo에 '-'이 포함되어야 합니다.");
 				$j("#noInput").focus()
@@ -204,10 +189,10 @@
 			}
 					
 			$j.ajax({
-				url : "/board/joinAction.do",
+				url: "/board/joinAction.do",
 			    dataType: "json",
 			    type: "POST",
-			    data : param,
+			    data: param,
 				success: function(data, textStatus, jqXHR)
 				{
 					
@@ -236,7 +221,7 @@
 	const checkSpc = /[~!@#$%^&*()_+|<>?:{}.,\/]/;
 	const checkKor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
 	/*
-	//전화번호 창 숫자만입력 가능하게
+	// 전화번호 창 숫자만입력 가능하게
 	function onlyNumber(event){
 		console.log(event.type, event.target.value);
 		const input = event.target.value;	
@@ -250,7 +235,7 @@
 			event.target.value = event.target.value.replace(regexp, '');
 		}
 
-	//한글만 입력 가능하게
+	// 한글만 입력 가능하게
 	function onlyKorean(event){
 		console.log(event.type, event.target.value);
 		const input = event.target.value;
@@ -265,37 +250,6 @@
 		
 		
 	}
-	//영어, 숫자만 입력 가능하게 
-	
-	function onlyEnglishNumber(event){
-		console.log(event.type, event.target.value);
-		const input = event.target.value;
-		let cleanInput = '';
-		const keyCode = event.target.value.charCodeAt(event.target.value.length - 1);
-		if(checkKor.test(input) || checkSpc.test(input)){
-			event.preventDefault();  
-			event.target.value = input.replace(checkKor, '');
-		}
-		
-		// 입력값을 한 글자씩 확인하면서 영어와 숫자만 남기기
-	    for (let i = 0; i < input.length; i++) {
-	        const char = input.substring(i, i + 1); // 한 글자씩 자르기
-	        if (!checkSpc.test(char) && !checkKor.test(char)) {
-	            cleanInput += char; // 영어와 숫자만 추가
-	        }
-	    }
-		
-	    const isHangul = (keyCode >= 0x1100 && keyCode <= 0x11FF) || (keyCode >= 0xAC00 && keyCode <= 0xD7A3); // 한글 자모 및 완성형
-	    if (!isValidKey || isHangeul) {
-		    event.preventDefault();
-		    return false;
-		  }
-	    
-		//substring 활용해보기
-		const regexp = /[^a-zA-Z0-9]/g;//영여ㅓ, 숫자가 아닌 모든 문자 /[^a-zA-Z0-9]/g;
-		event.target.value = cleanInput;
-		event.target.value = event.target.value.replace(regexp, '');
-	}*/
 		
 	//자동하이픈
 	const autoHyphen = (target) => {

@@ -66,8 +66,4 @@ public class EducationVo {
 		this.schoolLocation = schoolLocation;
 	}
 	
-
-	
-	
-	
 }

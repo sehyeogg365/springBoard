@@ -44,35 +44,28 @@
 			    data : param,
 			    success: function(data, textStatus, jqXHR)
 			    {
-					
 			    	if(data.success=="Y"){
 			    		alert("로그인완료");
 						
 						alert("메세지:"+data.success);
 						
 						location.href = "/recruit/mainPage.do";
-			    		
 			    	} else {
-			    		
 			    		alert("로그인 실패");
 			    	}
-			    	
-					//여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나? 
-					
+					// 여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나?
 			    },
 			    error: function (jqXHR, textStatus, errorThrown)
 			    {
 			    	alert("실패");
 			    }
-				
-				
 			});
 
 		});
 	
 	});
 	
-	//영어, 특수문자, 숫자 제거(이름)
+	// 영어, 특수문자, 숫자 제거(이름)
 	function filterInput1(input) {
 	    setTimeout(function() {
 	        input.value = input.value.replace(/[a-zA-Z]/g, '')  // 영어 제거
@@ -81,7 +74,7 @@
 	    }, 0); // 입력이 완료된 후에 영어, 특수문자, 숫자 제거
 	}
 	
-	//한글, 영어, 특수문자 제거 (전화번호)
+	// 한글, 영어, 특수문자 제거 (전화번호)
 	function filterInput2(input) {
 	    setTimeout(function() {
 	        input.value = input.value.replace(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g, '')  // 한글 제거
@@ -94,7 +87,6 @@
 <body>
 	<form class="loginForm">
 		<table align="center">
-			
 			<tr>
 				<td>
 					<table border ="1"> 
@@ -103,8 +95,7 @@
 								<b>이름</b>
 							</td>
 							<td width="200">
-								<input id="nameInput" name="name" type="text"oninput="filterInput1(this)"  maxlength='254'size="20" value=""> 
-								
+								<input id="nameInput" name="name" type="text"oninput="filterInput1(this)"  maxlength='254'size="20" value="">
 							</td>
 						</tr>
 						<tr>
@@ -123,9 +114,7 @@
 					</table>
 				</td>	
 			</tr>
-				
 		</table>
-	
 	</form>
 
 </body>

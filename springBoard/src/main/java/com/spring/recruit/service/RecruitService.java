@@ -9,7 +9,7 @@ import com.spring.recruit.vo.RecruitVo;
 
 public interface RecruitService {
 	
-	//채용정보
+	// 채용정보
 	public int recruitInsert(RecruitVo recruitVo) throws Exception;
 	
 	public RecruitVo recruitSelect(String name, String phone) throws Exception;
@@ -18,7 +18,7 @@ public interface RecruitService {
 	
 	public int recruitUpdate(RecruitVo recruitVo) throws Exception;
 	
-	//학력
+	// 학력
 	public int educateInsert(EducationVo educationVo) throws Exception;
 
 	public List<EducationVo> educateSelect(String seq) throws Exception;
@@ -27,7 +27,7 @@ public interface RecruitService {
 	
 	public int educateUpdate(EducationVo educationVo) throws Exception;
 	
-	//경력
+	// 경력
 	public int careerInsert(CareerVo careerVo) throws Exception;
 	
 	public List<CareerVo> careerSelect(String seq) throws Exception;
@@ -36,7 +36,7 @@ public interface RecruitService {
 	
 	public int careerUpdate(CareerVo careerVo) throws Exception;
 	
-	//자격증
+	// 자격증
 	public int certificateInsert(CertificateVo certificateVo) throws Exception;
 	
 	public List<CertificateVo> certificateSelect(String seq) throws Exception;

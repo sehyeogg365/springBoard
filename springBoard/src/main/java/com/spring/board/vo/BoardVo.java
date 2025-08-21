@@ -68,6 +68,5 @@ public class BoardVo {
 	public void setCodeName(String codeName) {
 		this.codeName = codeName;
 	}
-	
-	
+
 }

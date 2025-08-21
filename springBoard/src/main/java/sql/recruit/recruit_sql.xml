@@ -74,8 +74,8 @@
 	            #{workType},
 	            #{submit}
 	        )
-	  
     </insert>
+
     <select id="recruitSelect" parameterType="com.spring.recruit.vo.RecruitVo" resultMap="recruitVo">
     	SELECT *
     	FROM
@@ -137,7 +137,6 @@
 	            #{grade}, 
 	            #{schoolLocation}	
 	        )
-        
 	</insert>
 	
 	<delete id="educateDelete" parameterType="com.spring.recruit.vo.EducationVo">
@@ -202,9 +201,7 @@
         #{task},
         #{salary}
         )
-        
 	</insert>
-
 	
 	<select id="careerSelect" parameterType="com.spring.recruit.vo.CareerVo" resultMap="careerVo">
 		SELECT
@@ -238,7 +235,6 @@
     </update>
 	
 	<!-- 자격증 -->
-	
 	<insert id="certificateInsert" parameterType="com.spring.recruit.vo.CertificateVo">
 		INSERT INTO 
         CERTIFICATE
@@ -256,10 +252,8 @@
         #{acquDate}, 
         #{organizeName}
         )
-        
 	</insert>
-	
-	
+
 	<select id="certificateSelect" parameterType="com.spring.recruit.vo.CertificateVo" resultMap="certificateVo">
 		SELECT
 			*
@@ -287,8 +281,6 @@
     	WHERE
     		  SEQ = #{seq}
     </update>
-	
-
 
 </mapper>
 

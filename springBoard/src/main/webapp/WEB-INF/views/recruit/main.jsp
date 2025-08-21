@@ -21,7 +21,7 @@
 <script type="text/javascript">
 
 	$j(document).ready(function(){
-        
+
 		$j("#birthInput").focus()
 		
 		$j("#educationInsert").on("click", function(event){
@@ -30,77 +30,6 @@
 			
 			var $frm = $j('.educateForm :input');
 			var param = $frm.serialize();
-			/*
-			//alert(param);
-			var checked = $j('#educateCheckBox').is(':checked');
-			let seq = $j("#seqInput").val();
-			let startPeriod = $j("#startDate").val();
-			let endPeriod = $j("#endDate").val();
-			let division = $j("#divisionInput").val();
-			let school = $j("#schoolInput").val();
-			let location = $j("#locationInput").val();
-			let major = $j("#majorInput").val();
-			let grade = $j("#gradeInput").val();
-			
-			if(checked == false){
-				alert("체크박스를 선택하세요.");
-				$j("#educateCheckBox").focus()
-				return ;
-			}
-			
-			if(startPeriod == ""){
-				alert("재학기간 시작일을 입력하세요.");
-				$j("#startDate").focus()
-				return ;
-			}
-			if(startPeriod.length != 7){
-				alert("재학기간 시작일 YYYY.MM형태로 입력하세요.");
-				$j("#startDate").focus()
-				return ;
-			}
-			if(endPeriod == ""){
-				alert("재학기간 종료일을 입력하세요.");
-				$j("#endDate").focus()
-				return ;
-			}
-			if(endPeriod.length != 7){
-				alert("재학기간 종료일 YYYY.MM형태로 입력하세요.");
-				$j("#endDate").focus()
-				return ;
-			}
-			if(division == ""){
-				alert("구분셀렉터를 선택하세요.");
-				$j("#divisionInput").focus()
-				return ;
-			}
-			if(school == ""){
-				alert("학교를 입력하세요.");
-				$j("#schoolInput").focus()
-				return ;
-			}
-			if(location == ""){
-				alert("소재지를 입력하세요.");
-				$j("#locationInput").focus()
-				return ;
-			}
-			if(major == ""){
-				alert("전공을 입력하세요.");
-				$j("#majorInput").focus()
-				return ;
-			}
-			if(grade == "" || grade == "0.0"){
-				alert("학점을 입력하세요.");
-				$j("#gradeInput").focus()
-				return ;
-			}
-			if(grade.length < 3){
-				alert("학점을 x.x 형태로 입력하세요.");
-				$j("#gradeInput").focus()
-				return ;
-			}
-				
-			*/
-				
 		});
 		
 		$j("#educationDelete").off("click", function(event){
@@ -121,67 +50,6 @@
 			//alert("param" + param);
 				
 			let seq = $j("#seqInput").val();
-			/*
-			let employmentDate = $j("#employmentDate").val();
-			let resignDate = $j("#resignDate").val();
-			let company = $j("#compInput").val();
-			let dept = $j("#deptInput").val();
-			let area = $j("#areaInput").val();
-			
-			let part = dept.split("/");
-			let task = part[0]; 
-			let salary = part[1] + part[2];  
-				
-			var slashCount = (dept.match(/\//g) || []).length;
-
-			
-			if(employmentDate == ""){
-				alert("고용일을 입력해주세요.");
-				$j("#employmentDate").focus()
-				return ;
-			}
-			
-			if(employmentDate != null && employmentDate.length != 7){
-				alert("고용일을 YYYY.MM 형식으로 입력해주세요.");
-				$j("#employmentDate").focus()
-				return ;
-			}
-			
-			if(resignDate == ""){
-				alert("퇴사일을 입력해주세요.");
-				$j("#resignDate").focus()
-				return ;
-			}
-			
-			if(resignDate != null && resignDate.length != 7){
-				alert("퇴사일을 YYYY.MM 형식으로 입력해주세요.");
-				$j("#resignDate").focus()
-				return ;
-			}	
-			
-			if(company == ""){
-				alert("회사명을 입력해주세요.");
-				$j("#compInput").focus()
-				return ;
-			}
-			if(dept == ""){
-				alert("부서명을 입력해주세요.");
-				$j("#deptInput").focus()
-				return ;
-			}
-			
-			if(slashCount !== 2){
-				alert("부서/직급/직책 형식이 안 맞습니다.");
-				$j("#deptInput").focus()
-				return ;
-			}
-			
-			if(area == ""){
-				alert("지역을 입력해주세요.");
-				$j("#areaInput").focus()
-				return ;
-			}*/
-
 		});
 		
 		$j("#careerDelete").off("click", function(event){
@@ -198,43 +66,12 @@
 		
 			var $frm = $j('.certificateForm :input');
 			var param = $frm.serialize();
-			/*
-			let ceritificate = $j("#ceritificateInput").val();
-			let acquisitionDate = $j("#acquisitionDate").val();
-			let issuePlace = $j("#issuePlaceInput").val();
-	
-			
-			if(ceritificate == ""){
-				alert("자격증을 입력해주세요.");
-				$j("#ceritificateInput").focus()
-				return ;
-			}
-			
-			if(acquisitionDate == ""){
-				alert("취득일을 입력해주세요.");
-				$j("#acquisitionDate").focus()
-				return ; 
-			}
-			
-			if(acquisitionDate != null && acquisitionDate.length !=7){
-				alert("취득일을 YYYY.MM형태로 입력하세요.");
-				$j("#acquisitionDate").focus()
-				return ;
-			}
-			
-			if(issuePlace == ""){
-				alert("발행처를 입력해주세요.");
-				$j("#issuePlaceInput").focus()
-				return ;
-			}
-			*/
 		});
 		
 		$j("#certificateDelete").off("click", function(event){
 			event.preventDefault();
 			
 			deleteCertificate();
-	
 		});
 		
 		$j("#saveBtn").on("click", function(event){
@@ -252,11 +89,11 @@
 			var $frm2 = $j('.educateForm :input');
 			var param2 = $frm2.serialize();
 			
-			var $frm3 = $j('.careerForm :input'); 
-			var param3 = $frm3.serialize();
+			//var $frm3 = $j('.careerForm :input'); 
+			//var param3 = $frm3.serialize();
 			
-			var $frm4 = $j('.certificateForm :input');
-			var param4 = $frm4.serialize();
+			//var $frm4 = $j('.certificateForm :input');
+			//var param4 = $frm4.serialize();
 			
 			//여기도 체크박스 인풋이 체크되었을때만 넣기 
 
@@ -293,8 +130,7 @@
 				alert("학력체크박스를 체크해주세요");
 				return;	
 			}
-			
-			
+
 			//학력정보를 입력 유효성검사
 			let startPeriod = $j("#startDate").val();
 			let endPeriod = $j("#endDate").val();
@@ -368,10 +204,8 @@
 					$j("#areaInput").focus()
 					return ;
 				}
-				
 			}
-			
-			
+
 			//자격증 정보
 			let ceritificate = $j("#ceritificateInput").val();
 			let acquisitionDate = $j("#acquisitionDate").val();
@@ -404,8 +238,7 @@
 					return ;
 				}	
 			}
-			
-			
+
 			if(name == ""){
 				alert("이름을 입력하세요.");
 				$j("#nameInput").focus()
@@ -451,7 +284,6 @@
 				$j("#workTypeInput").focus()
 				return ;
 			}
-			
 			if(startPeriod == ""){
 				alert("재학기간 시작일을 입력하세요.");
 				$j("#startDate").focus()
@@ -502,13 +334,12 @@
 				$j("#gradeInput").focus()
 				return ;
 			}
-			
 
 			$j.ajax({
-				url : "/recruit/recruitInsertAction.do",
+				url: "/recruit/recruitInsertAction.do",
 			    dataType: "json",
 			    type: "POST",
-			    data : param,
+			    data: param,
 			    success: function(data, textStatus, jqXHR)
 			    {
 					alert("작성완료");
@@ -516,8 +347,7 @@
 					alert("메세지:"+data.success);
 					
 					location.reload();
-					//여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나? 
-					
+					//여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나?
 			    },
 			    error: function (jqXHR, textStatus, errorThrown)
 			    {
@@ -543,8 +373,6 @@
 			
 			//var $frm4 = $j('.certificateForm :input');
 			//var param4 = $frm4.serialize();
-			 	
-		 	//let param = param1 +'&' + param2 +'&'+ param3 +'&'+ param4;
 		 	
 			let param = param1 +'&' + param2;// +'&'+ param3 +'&'+ param4;
 			
@@ -580,8 +408,7 @@
 				alert("학력체크박스를 체크해주세요");
 				return;	
 			}
-			
-			
+
 			//학력정보를 입력 유효성검사
 			let startPeriod = $j("#startDate").val();
 			let endPeriod = $j("#endDate").val();
@@ -605,9 +432,7 @@
 			let salary = part[1] + part[2];  
 					
 			var slashCount = (dept.match(/\//g) || []).length;
-			
-			
-			
+
 			//경력체크 되었을때
 			if(careerChecked.checked){
 				if(employmentDate == ""){
@@ -659,7 +484,6 @@
 				
 			}
 			
-			
 			//자격증 정보
 			let ceritificate = $j("#ceritificateInput").val();
 			let acquisitionDate = $j("#acquisitionDate").val();
@@ -691,8 +515,6 @@
 					return ;
 				}	
 			}
-			
-			
 			if(name == ""){
 				alert("이름을 입력하세요.");
 				$j("#nameInput").focus()
@@ -738,7 +560,6 @@
 				$j("#workTypeInput").focus()
 				return ;
 			}
-			
 			if(startPeriod == ""){
 				alert("재학기간 시작일을 입력하세요.");
 				$j("#startDate").focus()
@@ -789,7 +610,6 @@
 				$j("#gradeInput").focus()
 				return ;
 			}
-			
 
 			$j.ajax({
 				url : "/recruit/recruitInsertAction.do",
@@ -803,8 +623,7 @@
 					alert("메세지:"+data.success);
 					
 					location.reload();
-					//여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나? 
-					
+					//여기 수정해보기 상수가 아닌 pageNo response로 받아와야 하나?
 			    },
 			    error: function (jqXHR, textStatus, errorThrown)
 			    {
@@ -813,10 +632,7 @@
 			    	alert("textStatus" + textStatus);
 			    }
 			});
-			
 		});
-		
-		
 	});
 	//자동점찍기 연월 YYYY.MM
 	const autoDot = (target) => {
@@ -839,8 +655,6 @@
 		     .replace(/^(\d{0,1})(\d{0,2})$/g, "$1.$2").replace(/(\-{1,2})$/g, "");//3.0 형태로 .찍기
 		  	 // 숫자가 있을 경우에만 소수점 처리
 	      	 // 입력 값이 비어 있을 경우
-		     
-	     
 	     }, 0);
 	}
 	
@@ -892,8 +706,6 @@
 	        		
 	    }, 0); // 입력이 완료된 후에 숫자 특수문자 제거
 	}
-
-	
 	
 	//테이블 행 추가/삭제
 	
@@ -914,13 +726,13 @@
 	  //자바 스크립트에서 동적으로 요소 만들기 
 	  const input1 = document.createElement('input');
 	  
-	  input1.setAttribute('name', 'educationCheck');
+	  input1.setAttribute('name', 'educationCheck[]');
 	  input1.setAttribute('type', 'checkbox');
 	  
 	  const input2 = document.createElement('input');
 	  
 	  input2.setAttribute('id', 'startDate');
-	  input2.setAttribute('name', 'admissionDate');
+	  input2.setAttribute('name', 'admissionDate[]');
 	  input2.setAttribute('type', 'text');
 	  input2.setAttribute('maxlength', 7);
 	  input2.setAttribute('oninput', 'autoDot(this)');
@@ -930,7 +742,7 @@
 	  const input3 = document.createElement('input');
 	  
 	  input3.setAttribute('id', 'endDate');
-	  input3.setAttribute('name', 'graduateDate');
+	  input3.setAttribute('name', 'graduateDate[]');
 	  input3.setAttribute('type', 'text');
 	  input3.setAttribute('maxlength', 7);
 	  input3.setAttribute('oninput', 'autoDot(this)');
@@ -939,7 +751,7 @@
 	// 두 번째 셀에 select 요소 추가
 	  const select = document.createElement('select');
 	  select.setAttribute('id', 'divisionInput');
-	  select.setAttribute('name', 'division');
+	  select.setAttribute('name', 'division[]');
 	  select.setAttribute('style', 'width: 50px;');
 	  
 	  // 옵션 추가 함수
@@ -964,7 +776,7 @@
 	  const input4 = document.createElement('input');
 	  
 	  input4.setAttribute('id', 'schoolInput');
-	  input4.setAttribute('name', 'schoolName');
+	  input4.setAttribute('name', 'schoolName[]');
 	  input4.setAttribute('type', 'text');
 	  input4.setAttribute('maxlength', 7);
 	  input4.setAttribute('oninput', 'filterInput2(this)');
@@ -972,7 +784,7 @@
 	  //input4.value = ''; 	
 	  const select2 = document.createElement('select');
 	  select2.setAttribute('id', 'schoolLocationInput');
-	  select2.setAttribute('name', 'schoolLocation');
+	  select2.setAttribute('name', 'schoolLocation[]');
 	  select2.setAttribute('style', 'width: 70px;');
 	  
 	  // 옵션 추가 함수
@@ -1001,7 +813,7 @@
 	  //전공
 	  const input5 = document.createElement('input');
 	  input5.setAttribute('id', 'majorInput');
-	  input5.setAttribute('name', 'major');
+	  input5.setAttribute('name', 'major[]');
 	  input5.setAttribute('type', 'text');
 	  input5.setAttribute('maxlength', 7);
 	  input5.setAttribute('oninput', 'filterInput2(this)');
@@ -1011,7 +823,7 @@
 	  //학점
 	  const input6 = document.createElement('input');
 	  input6.setAttribute('id', 'gradeInput');
-	  input6.setAttribute('name', 'grade');
+	  input6.setAttribute('name', 'grade[]');
 	  input6.setAttribute('type', 'text');
 	  input6.setAttribute('maxlength', 4);
 	  input6.setAttribute('style', 'width: 95%');
@@ -1066,7 +878,6 @@
               table.deleteRow(row.rowIndex); // 행 삭제
           }
       });
-
     }
 	
 	function addCareerRow() {
@@ -1154,7 +965,6 @@
 	}
 		
 	function deleteCareerRow(rownum) {
-
       // table element 찾기
       //const table = document.getElementById('careerTable');
       
@@ -1296,14 +1106,10 @@
 <body>
 
 <h3 class="maintitle">입사 지원서</h3>
-
-
-
 	<table align="center" style="width: 70%;" border = "1">
 		<tr><td>
 
 		<table id="wholeTable" align="center" style="width: 100%;">
-	
 		
 			<tr style="border:none;">
 				<td style="border:none;">
@@ -1476,8 +1282,7 @@
 							${recruit.hopeLocation }전체 <br>
 							${recruit.workType }
 						</td>
-					</tr>				
-					
+					</tr>
 				</table>	
 			</td>
 			</tr>
@@ -1536,23 +1341,23 @@
 				<c:forEach var="educate" items="${educateList}">
 				<tr id="">
 					<td width="" >
-						<input name="educationCheck" type="checkbox"/>
+						<input name="educationCheck[]" type="checkbox"/>
 					</td>
 					<td width="" >
-						<input id="startDate" type="text" name="admissionDate" maxlength='7' oninput="autoDot(this)" value="${educate.admissionDate }"/><br>
+						<input id="startDate" type="text" name="admissionDate[]" maxlength='7' oninput="autoDot(this)" value="${educate.admissionDate }"/><br>
 						~<br>
-						<input id="endDate"type="text" name="graduateDate" maxlength='7' oninput="autoDot(this)" value="${educate.graduateDate }"/>
+						<input id="endDate"type="text" name="graduateDate[]" maxlength='7' oninput="autoDot(this)" value="${educate.graduateDate }"/>
 					</td>
 					<td width="" >
-						<select id="divisionInput" name="division" style="width: 50px;">
+						<select id="divisionInput" name="division[]" style="width: 50px;">
 							<option value="재학" ${educate.division == '재학' ? 'selected' : ''}>재학</option>
 						    <option value="중퇴" ${educate.division == '중퇴' ? 'selected' : ''}>중퇴</option>
 						    <option value="졸업" ${educate.division == '졸업' ? 'selected' : ''}>졸업</option>
 						</select>
 					</td>
 					<td width="">
-						<input id="schoolInput" name="schoolName" type="text" oninput="filterInput2(this)" value="${educate.schoolName }"/><br>
-						<select id="schoolLocationInput" name ="schoolLocation" style="width: 70px;">
+						<input id="schoolInput" name="schoolName[]" type="text" oninput="filterInput2(this)" value="${educate.schoolName }"/><br>
+						<select id="schoolLocationInput" name ="schoolLocation[]" style="width: 70px;">
 							<option value="서울" ${educate.schoolLocation == '서울' ? 'selected' : ''}>서울</option>
 						    <option value="인천" ${educate.schoolLocation == '인천' ? 'selected' : ''}>인천</option>
 						    <option value="강원도" ${educate.schoolLocation == '강원도' ? 'selected' : ''}>강원도</option>
@@ -1563,14 +1368,12 @@
 						</select>
 					</td>
 					<td width="">
-						<input id="majorInput" name="major" type="text" oninput="filterInput2(this)" style="width: 95%;" value="${educate.major }"/>
+						<input id="majorInput" name="major[]" type="text" oninput="filterInput2(this)" style="width: 95%;" value="${educate.major }"/>
 					</td>
 					<td width="">
-						<input id="gradeInput" name="grade" type="text" oninput="autoDot2(this)" maxlength='4' style="width: 95%;" value="${educate.grade }"/>
+						<input id="gradeInput" name="grade[]" type="text" oninput="autoDot2(this)" maxlength='4' style="width: 95%;" value="${educate.grade }"/>
 						<input id="seqInput"  name="seq" type="hidden"value="${recruit.seq}">
-						
 					</td>
-					
 				</tr>
 				</c:forEach>
 			</table>

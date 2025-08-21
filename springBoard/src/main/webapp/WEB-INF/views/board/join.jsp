@@ -265,37 +265,6 @@
 		
 		
 	}
-	//영어, 숫자만 입력 가능하게 
-	
-	function onlyEnglishNumber(event){
-		console.log(event.type, event.target.value);
-		const input = event.target.value;
-		let cleanInput = '';
-		const keyCode = event.target.value.charCodeAt(event.target.value.length - 1);
-		if(checkKor.test(input) || checkSpc.test(input)){
-			event.preventDefault();  
-			event.target.value = input.replace(checkKor, '');
-		}
-		
-		// 입력값을 한 글자씩 확인하면서 영어와 숫자만 남기기
-	    for (let i = 0; i < input.length; i++) {
-	        const char = input.substring(i, i + 1); // 한 글자씩 자르기
-	        if (!checkSpc.test(char) && !checkKor.test(char)) {
-	            cleanInput += char; // 영어와 숫자만 추가
-	        }
-	    }
-		
-	    const isHangul = (keyCode >= 0x1100 && keyCode <= 0x11FF) || (keyCode >= 0xAC00 && keyCode <= 0xD7A3); // 한글 자모 및 완성형
-	    if (!isValidKey || isHangeul) {
-		    event.preventDefault();
-		    return false;
-		  }
-	    
-		//substring 활용해보기
-		const regexp = /[^a-zA-Z0-9]/g;//영여ㅓ, 숫자가 아닌 모든 문자 /[^a-zA-Z0-9]/g;
-		event.target.value = cleanInput;
-		event.target.value = event.target.value.replace(regexp, '');
-	}*/
 		
 	//자동하이픈
 	const autoHyphen = (target) => {

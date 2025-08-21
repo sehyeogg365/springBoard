@@ -72,7 +72,4 @@ public class RecruitVo {
 		this.submit = submit;
 	}
 
-	
-	
-	
 }
