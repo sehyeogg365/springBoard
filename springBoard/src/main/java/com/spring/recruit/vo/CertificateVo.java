@@ -39,5 +39,4 @@ public class CertificateVo {
 		this.organizeName = organizeName;
 	}
 	
-	
 }

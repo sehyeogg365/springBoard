@@ -39,5 +39,4 @@ public class CodeVo {
 		this.modifier = modifier;
 	}
 	
-	
 }

@@ -7,7 +7,7 @@ import com.spring.board.vo.CodeVo;
 import com.spring.board.vo.PageVo;
 import com.spring.board.vo.UserVo;
 
-public interface boardService {
+public interface BoardService {
 
 	public String selectTest() throws Exception;
 

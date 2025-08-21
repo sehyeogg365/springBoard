@@ -37,14 +37,12 @@ public class RecruitController {
 	//로그인페이지
 	@RequestMapping(value = "/recruit/loginPage.do", method = RequestMethod.GET)
 	public String loginPage() throws Exception{
-		
 		return "/recruit/login";
 	}
 	//로그인
 	@RequestMapping(value = "/recruit/loginAction.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String loginAction (Locale locale, RecruitVo recruitVo, HttpSession session) throws Exception{
-		
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 
@@ -62,7 +60,6 @@ public class RecruitController {
 	//메인화면
 	@RequestMapping(value = "/recruit/mainPage.do", method = RequestMethod.GET)
 	public String mainPage(HttpSession session, Model model) throws Exception{
-		
 		//세션값 불러오기
 		String name = (String) session.getAttribute("name");
         String phone = (String) session.getAttribute("phone");
@@ -73,8 +70,7 @@ public class RecruitController {
         
         System.out.println("name" + name);
         System.out.println("phone" + phone);
-      
-        
+
          RecruitVo recruitVo = new RecruitVo();
          List<EducationVo> educationList = new ArrayList<>();
          List<CareerVo> careerList = new ArrayList<>();
@@ -87,26 +83,25 @@ public class RecruitController {
              System.out.println("recruitVo: " + recruitVo);
              
              if(recruitVo != null){
-             educationList = recruitService.educateSelect(recruitVo.getSeq());
-             System.out.println("educationVo: " + educationList);
-             
-             careerList = recruitService.careerSelect(recruitVo.getSeq());
-             System.out.println("careerVo: " + careerList);
-             certificateList = recruitService.certificateSelect(recruitVo.getSeq());
-             System.out.println("certificateVo" + certificateList);
+	             educationList = recruitService.educateSelect(recruitVo.getSeq());
+	             System.out.println("educationVo: " + educationList);
+	             
+	             careerList = recruitService.careerSelect(recruitVo.getSeq());
+	             System.out.println("careerVo: " + careerList);
+	             certificateList = recruitService.certificateSelect(recruitVo.getSeq());
+	             System.out.println("certificateVo" + certificateList);
              }
          } catch (Exception e) {
              e.printStackTrace();  // 오류 로그 출력
              throw new Exception("Recruit 정보 조회 중 오류 발생: " + e.getMessage(), e);
          }
-   
-      
+
          if (recruitVo == null) {
         	 model.addAttribute("phone", phone);
      		 model.addAttribute("name", name);
         	 model.addAttribute("recruit", new RecruitVo()); // 기본값으로 빈 객체를 전달
         	 
-         } else {//있을때 디비값
+         } else {// 있을때 디비값
         	 model.addAttribute("recruit", recruitVo);
          }
         
@@ -119,7 +114,6 @@ public class RecruitController {
      
          if (careerList == null) {
         	model.addAttribute("career", new ArrayList<>()); // 기본값으로 빈 객체를 전달
-
          } else {
         	model.addAttribute("careerList", careerList);
          }
@@ -173,11 +167,11 @@ public class RecruitController {
 		System.out.println("시퀀스값: " + recruitVo.getSeq());
 		System.out.println("로케이션: " + recruitVo.getHopeLocation());
 		//일단 각 seq값을 셋팅해줘야 할것. 
-		
-		
-				
+
 		// 2. Education 정보 저장
 		//Education정보 존재 확인
+		//인서트, 업데이트도 반복문 돌리면서 해야 함 
+		
 		int educateCnt = recruitService.educateExistence(recruitVo.getSeq());
 		int educationResultCnt = 0;
 		if(educateCnt == 0) {
@@ -189,6 +183,7 @@ public class RecruitController {
 	    // 3. Career 정보 저장
 	    
 	    //초기값 0 설정 다음 vo 값 존재할시에만 저장
+		//인서트, 업데이트도 반복문 돌리면서 해야 함 
 		int carrerCnt = recruitService.careerExistence(recruitVo.getSeq());
 	    int careerResultCnt = 0;
 	    
@@ -208,7 +203,7 @@ public class RecruitController {
 	    System.out.println(careerVo.getSalary());
 
 	    // 4. Certificate 정보 저장 (자격증은 필수가 아닐 수 있음)
-	    
+	    //인서트, 업데이트도 반복문 돌리면서 해야 함 
 	    int certificateCnt = recruitService.certificateExistence(recruitVo.getSeq());
 	    int certificateResultCnt = 0;
 	    
@@ -218,19 +213,14 @@ public class RecruitController {
 		    } else {
 		    	certificateResultCnt = recruitService.certificateUpdate(certificateVo);//정보 업데이트
 		    }
-	    }     
-	    
+	    }
+
 	    result.put("success", (resultCnt > 0 && educationResultCnt > 0)?"Y":"N");
-		
 		
 		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
 		
 		System.out.println("callbackMsg::"+callbackMsg);
 		
 		return callbackMsg;
-
 	}
-
-
-
 }

@@ -36,16 +36,14 @@ import com.spring.common.CommonUtil;
 public class BoardController {
 	
 	@Autowired 
-	boardService boardService;
+	BoardService boardService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
 
-	//boardWriteAction참고해보기 @ResponseBody 추가하기 
+	// boardWriteAction참고해보기 @ResponseBody 추가하기
 	@RequestMapping(value = "/board/boardList.do", method = RequestMethod.GET)
 	public String boardList(Locale locale, Model model,PageVo pageVo,CodeVo codeVo
 			, @RequestParam(value = "boardTypeList", required = false)ArrayList<String> boardTypeList) throws Exception{
-		
 		//������ �Ķ���� ����� List<String> boardTypeList �̷�������
 		//List<BoardVo> boardList = new ArrayList<BoardVo>();
 		List<BoardVo> boardList = null; //�̷��� ����
@@ -91,7 +89,6 @@ public class BoardController {
 	public Map<String, Object> boardCheckboxList(Locale locale, Model model,PageVo pageVo,CodeVo codeVo
 			, @RequestParam(value = "boardTypeList", required = false)ArrayList<String> boardTypeList
 			) throws Exception{
-		
 		List<BoardVo> boardList = null; 
 		
 		HashMap<String, Object> result = new HashMap<String, Object>();
@@ -132,10 +129,8 @@ public class BoardController {
 	public String boardView(Locale locale, Model model
 			,@PathVariable("boardType")String boardType
 			,@PathVariable("boardNum")int boardNum) throws Exception{
-		
-		BoardVo boardVo = new BoardVo();//BoardVo�� �� �� ������Ƽ���� �ִٸ� ���� PathVartiable������ص� �ȴ�
-		
-		
+		BoardVo boardVo = new BoardVo();//BoardVo에 값이 다있을시에 @PathVariable을 선언안해도 됨 boardVO만 선언하면 됨 
+
 		boardVo = boardService.selectBoard(boardType,boardNum);
 		
 		model.addAttribute("boardType", boardType);
@@ -148,18 +143,13 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/getCodeNames.do", method = RequestMethod.GET)
 	public List<CodeVo> getCodeNames(CodeVo codeVo) throws Exception{
-		
 		List<CodeVo> codeNameList = boardService.selectCodeNamePhone(codeVo);
-		
 		return codeNameList;
-	
 	}
 	
 	@RequestMapping(value = "/board/boardWrite.do", method = RequestMethod.GET)
 	public String boardWrite(Locale locale, Model model, CodeVo codeVo) throws Exception{
-		
 		List<CodeVo> codeNameList = boardService.selectCodeNamePhone(codeVo);
-		
 		model.addAttribute("codeNameList", codeNameList);
 		
 		return "board/boardWrite";
@@ -168,7 +158,6 @@ public class BoardController {
 	@RequestMapping(value = "/board/boardWriteAction.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String boardWriteAction(Locale locale,BoardVo boardVo) throws Exception{
-		
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 		
@@ -183,16 +172,14 @@ public class BoardController {
 		return callbackMsg;
 	}
 	
-	//수정 페이지
+	// 수정 페이지
 	@RequestMapping(value = "/board/{boardType}/{boardNum}/boardModify.do", method = RequestMethod.GET)
 	public String boardModify(Locale locale, Model model
 			,@PathVariable("boardType")String boardType
 			,@PathVariable("boardNum")int boardNum) throws Exception{
-		
 		BoardVo boardVo = new BoardVo();//BoardVo�� �� �� ������Ƽ���� �ִٸ� ���� PathVartiable������ص� �ȴ�
-		
-		
-		boardVo = boardService.selectBoard(boardType,boardNum);
+
+		boardVo = boardService.selectBoard(boardType, boardNum);
 	
 		model.addAttribute("boardType", boardType);
 		model.addAttribute("boardNum", boardNum);
@@ -200,11 +187,10 @@ public class BoardController {
 
 		return "board/boardModify";
 	}
-	//수정
+	// 수정
 	@RequestMapping(value = "/board/boardModifyAction.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, String> boardModifyAction(Locale locale, BoardVo boardVo) throws Exception {
-		
 		Map<String, String> result = new HashMap<String, String>();
 		
 		CommonUtil commonUtil = new CommonUtil();
@@ -218,11 +204,10 @@ public class BoardController {
 		return result;	
 	}
 
-	//삭제
+	// 삭제
 	@RequestMapping(value = "/board/boardDeleteAction.do", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, String> boardDeleteAction(Locale locale, BoardVo boardVo) throws Exception{
-		
 		Map<String, String> result = new HashMap<String, String>();
 		
 		CommonUtil commonUtil = new CommonUtil();
@@ -236,20 +221,17 @@ public class BoardController {
 
 	@RequestMapping(value = "/board/joinPage.do", method = RequestMethod.GET)
 	public String joinPage(Locale locale, Model model, CodeVo codeVo) throws Exception{
-		
 		List<CodeVo> codePhoneList = boardService.selectCodeNamePhone(codeVo);
-		
 		model.addAttribute("codePhoneList", codePhoneList);
 		
 		return "/board/join";
 	}
 	
-	//회원가입
+	// 회원가입
 	@RequestMapping(value = "/board/joinAction.do", method = RequestMethod.POST
 			, produces="application/text;charset=utf-8")
 	@ResponseBody
 	public String joinAction(Locale locale, UserVo userVo) throws Exception{
-		
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 		
@@ -264,11 +246,10 @@ public class BoardController {
 		return callbackMsg;
 	}
 
-	//중복아이디 검사
+	// 중복아이디 검사
 	@RequestMapping(value ="/board/isduplicateId.do", method = RequestMethod.GET)
 	@ResponseBody
 	public String isDuplicateId(Locale locale, UserVo uservo) throws Exception{
-		
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 		
@@ -279,21 +260,17 @@ public class BoardController {
 		String callbackMsg = commonUtil.getJsonCallBackString(" ",result);
 		
 		System.out.println("callbackMsg::"+callbackMsg);
-		
-		
+
 		return callbackMsg;
 	}
-	
 	@RequestMapping(value = "/board/loginPage.do", method = RequestMethod.GET)
 	public String loginPage() throws Exception{
-		
 		return "/board/login";
 	}
 	
 	@RequestMapping(value = "/board/loginAction.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String loginAction(Locale locale, UserVo uservo, HttpSession session) throws Exception{
-		
 		HashMap<String, String> result = new HashMap<String, String>();
 		CommonUtil commonUtil = new CommonUtil();
 
@@ -302,7 +279,6 @@ public class BoardController {
 		result.put("success", (getUser != null)?"Y":"N");
 		
 		if(getUser!=null) {
-			
 			session.setAttribute("userId", getUser.getUserId());
 			session.setAttribute("userName", getUser.getUserName());
 		}
@@ -316,15 +292,10 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/logoutAction.do", method = RequestMethod.GET)
 	public String logoutAction(HttpServletRequest request){
-		
 		HttpSession session = request.getSession();
 		session.removeAttribute("userId");
 		session.removeAttribute("userName");
 		
 		return "redirect:/board/boardList.do";
 	}
-
-
-	
-	
 }

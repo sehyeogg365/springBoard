@@ -8,7 +8,7 @@ import com.spring.recruit.vo.EducationVo;
 import com.spring.recruit.vo.RecruitVo;
 
 public interface RecruitDao {
-	//채용정보
+	// 채용정보
 	
 	public int recruitInsert(RecruitVo recruitVo) throws Exception;
 	
@@ -18,7 +18,7 @@ public interface RecruitDao {
 	
 	public int recruitUpdate(RecruitVo recruitVo) throws Exception;
 	
-	//학력
+	// 학력
 	public int educateInsert(EducationVo educationVo) throws Exception;
 		
 	public List<EducationVo> educateSelect(EducationVo educationVo) throws Exception;
@@ -27,7 +27,7 @@ public interface RecruitDao {
 	
 	public int educateUpdate(EducationVo educationVo) throws Exception;
 	
-	//경력
+	// 경력
 	public int careerInsert(CareerVo careerVo) throws Exception;
 	
 	public List<CareerVo> careerSelect(CareerVo careerVo) throws Exception;
@@ -36,7 +36,7 @@ public interface RecruitDao {
 	
 	public int careerUpdate(CareerVo careerVo) throws Exception;
 	
-	//자격증
+	// 자격증
 	public int certificateInsert(CertificateVo certificateVo) throws Exception;
 	
 	public List<CertificateVo> certificateSelect(CertificateVo certificateVo) throws Exception;
@@ -44,6 +44,5 @@ public interface RecruitDao {
 	public int certificateExistence(CertificateVo certificateVo) throws Exception;
 	
 	public int certificateUpdate(CertificateVo certificateVo) throws Exception;
-	
 	
 }

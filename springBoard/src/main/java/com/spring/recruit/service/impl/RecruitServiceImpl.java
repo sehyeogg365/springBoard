@@ -18,20 +18,17 @@ public class RecruitServiceImpl implements RecruitService {
 
 	@Autowired
 	RecruitDao recruitDao;
-	
 
-	//채용정보 
+	// 채용정보
 	
-	//저장
+	// 저장
 	@Override
 	public int recruitInsert(RecruitVo recruitVo) throws Exception{
-		
 		return recruitDao.recruitInsert(recruitVo);
 	}
 		
 	@Override
 	public RecruitVo recruitSelect(String name, String phone) throws Exception{
-		
 		RecruitVo recruitVo = new RecruitVo();
 		
 		recruitVo.setName(name);
@@ -42,28 +39,24 @@ public class RecruitServiceImpl implements RecruitService {
 	
 	@Override
 	public int recruitExistence(RecruitVo recruitVo) throws Exception{
-		
 		return recruitDao.recruitExistence(recruitVo);
 	}
 	
 	@Override
 	public int recruitUpdate(RecruitVo recruitVo) throws Exception{
-		
 		return recruitDao.recruitUpdate(recruitVo);
 	}
 	//제출
 	
-	//학력 추가
+	// 학력 추가
 	@Override
 	public int educateInsert(EducationVo educationVo) throws Exception{
-		
 		return recruitDao.educateInsert(educationVo);
 	}
 	
-	//학력 조회 
+	// 학력 조회
 	@Override 
 	public List<EducationVo> educateSelect(String seq) throws Exception{
-		
 		EducationVo educationVo = new EducationVo();
 		
 		educationVo.setSeq(seq);
@@ -80,11 +73,10 @@ public class RecruitServiceImpl implements RecruitService {
 	}
 	
 	public int educateUpdate(EducationVo educationVo) throws Exception{
-		
 		return recruitDao.educateUpdate(educationVo);
 	}
 	
-	//경력 추가
+	// 경력 추가
 	@Override
 	public int careerInsert(CareerVo careerVo) throws Exception{
 		
@@ -104,10 +96,9 @@ public class RecruitServiceImpl implements RecruitService {
 		return recruitDao.careerInsert(careerVo);
 	}
 	
-	//경력 조회
+	// 경력 조회
 	@Override
 	public List<CareerVo> careerSelect(String seq) throws Exception{
-		
 		CareerVo careerVo = new CareerVo();
 		
 		careerVo.setSeq(seq);
@@ -140,17 +131,16 @@ public class RecruitServiceImpl implements RecruitService {
 		return recruitDao.careerUpdate(careerVo);
 	}
 	
-	//자격증 추가
+	// 자격증 추가
 	@Override
 	public int certificateInsert(CertificateVo certificateVo) throws Exception{
 		
 		return recruitDao.certificateInsert(certificateVo);
 	}
 	
-	//자격증 조회
+	// 자격증 조회
 	@Override
 	public List<CertificateVo> certificateSelect(String seq) throws Exception{
-		
 		CertificateVo certificateVo = new CertificateVo();
 		
 		certificateVo.setSeq(seq);
@@ -166,9 +156,6 @@ public class RecruitServiceImpl implements RecruitService {
 	}
 	
 	public int certificateUpdate(CertificateVo certificateVo) throws Exception{
-		
 		return recruitDao.certificateUpdate(certificateVo);
 	}
-	
-	
 }

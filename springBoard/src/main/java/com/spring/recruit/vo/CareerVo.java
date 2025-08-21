@@ -60,7 +60,5 @@ public class CareerVo {
 	public void setSalary(String salary) {
 		this.salary = salary;
 	}
-	
-	
 
 }
